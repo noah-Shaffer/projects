@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Brayden Boyko">
+<meta name="dcterms.date" content="2025-07-19">
+
+<title>Boyko Wealth Quant Day</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Quant Session 4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Quant Session 4_files/libs/quarto-html/quarto.js"></script>
+<script src="Quant Session 4_files/libs/quarto-html/popper.min.js"></script>
+<script src="Quant Session 4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Quant Session 4_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Quant Session 4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Quant Session 4_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Quant Session 4_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Quant Session 4_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Quant Session 4_files/libs/bootstrap/bootstrap-8a79a254b8e706d3c925cde0a310d4f0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#topics" id="toc-topics" class="nav-link active" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#regional-commodities-market-for-wheat" id="toc-regional-commodities-market-for-wheat" class="nav-link" data-scroll-target="#regional-commodities-market-for-wheat">Regional Commodities Market For Wheat</a>
+  <ul class="collapse">
+  <li><a href="#fundamentals-of-regional-markets" id="toc-fundamentals-of-regional-markets" class="nav-link" data-scroll-target="#fundamentals-of-regional-markets">Fundamentals of Regional Markets</a></li>
+  <li><a href="#fundamentals-of-wheat" id="toc-fundamentals-of-wheat" class="nav-link" data-scroll-target="#fundamentals-of-wheat">Fundamentals of Wheat</a></li>
+  <li><a href="#trading-cash" id="toc-trading-cash" class="nav-link" data-scroll-target="#trading-cash">Trading Cash</a></li>
+  <li><a href="#trading-forwards" id="toc-trading-forwards" class="nav-link" data-scroll-target="#trading-forwards">Trading Forwards</a></li>
+  <li><a href="#trading-swaps-and-structured-products" id="toc-trading-swaps-and-structured-products" class="nav-link" data-scroll-target="#trading-swaps-and-structured-products">Trading Swaps And Structured Products</a></li>
+  </ul></li>
+  <li><a href="#exchange-traded-futures-for-crude-oil" id="toc-exchange-traded-futures-for-crude-oil" class="nav-link" data-scroll-target="#exchange-traded-futures-for-crude-oil">Exchange Traded Futures For Crude Oil</a>
+  <ul class="collapse">
+  <li><a href="#the-role-of-crude-oil-in-global-markets" id="toc-the-role-of-crude-oil-in-global-markets" class="nav-link" data-scroll-target="#the-role-of-crude-oil-in-global-markets">The Role of Crude Oil in Global Markets</a></li>
+  <li><a href="#market-participants-and-flows" id="toc-market-participants-and-flows" class="nav-link" data-scroll-target="#market-participants-and-flows">Market Participants and Flows</a></li>
+  <li><a href="#futures-rollover-modeling-market-structure" id="toc-futures-rollover-modeling-market-structure" class="nav-link" data-scroll-target="#futures-rollover-modeling-market-structure">Futures Rollover (Modeling &amp; Market Structure)</a></li>
+  <li><a href="#quantitative-models-trading-strategies-in-crude-oil-futures" id="toc-quantitative-models-trading-strategies-in-crude-oil-futures" class="nav-link" data-scroll-target="#quantitative-models-trading-strategies-in-crude-oil-futures">Quantitative Models &amp; Trading Strategies in Crude Oil Futures</a></li>
+  <li><a href="#calendar-spreads-curve-trades" id="toc-calendar-spreads-curve-trades" class="nav-link" data-scroll-target="#calendar-spreads-curve-trades">Calendar Spreads &amp; Curve Trades</a></li>
+  <li><a href="#algorithmic-and-systematic-futures-trading" id="toc-algorithmic-and-systematic-futures-trading" class="nav-link" data-scroll-target="#algorithmic-and-systematic-futures-trading">Algorithmic and Systematic Futures Trading</a></li>
+  </ul></li>
+  <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link" data-scroll-target="#bootstrapping">Bootstrapping</a>
+  <ul class="collapse">
+  <li><a href="#bootstrapping-yield-curves" id="toc-bootstrapping-yield-curves" class="nav-link" data-scroll-target="#bootstrapping-yield-curves">Bootstrapping Yield Curves</a></li>
+  <li><a href="#swap-curve-construction" id="toc-swap-curve-construction" class="nav-link" data-scroll-target="#swap-curve-construction">Swap Curve Construction</a></li>
+  <li><a href="#local-volatility-surface-dupire-framework" id="toc-local-volatility-surface-dupire-framework" class="nav-link" data-scroll-target="#local-volatility-surface-dupire-framework">Local Volatility Surface: Dupire Framework</a></li>
+  <li><a href="#integration-in-practice" id="toc-integration-in-practice" class="nav-link" data-scroll-target="#integration-in-practice">Integration in Practice</a></li>
+  </ul></li>
+  <li><a href="#distressed-debt-modeling" id="toc-distressed-debt-modeling" class="nav-link" data-scroll-target="#distressed-debt-modeling">Distressed Debt Modeling</a>
+  <ul class="collapse">
+  <li><a href="#quantitative-methods" id="toc-quantitative-methods" class="nav-link" data-scroll-target="#quantitative-methods">Quantitative Methods</a></li>
+  <li><a href="#default-clustering-correlated-defaults" id="toc-default-clustering-correlated-defaults" class="nav-link" data-scroll-target="#default-clustering-correlated-defaults">Default Clustering (Correlated Defaults)</a></li>
+  <li><a href="#improvements-to-modeling-cdos-in-2008" id="toc-improvements-to-modeling-cdos-in-2008" class="nav-link" data-scroll-target="#improvements-to-modeling-cdos-in-2008">Improvements To Modeling CDOs In 2008</a></li>
+  </ul></li>
+  <li><a href="#noahs-model-review" id="toc-noahs-model-review" class="nav-link" data-scroll-target="#noahs-model-review">Noah’s Model Review</a></li>
+  <li><a href="#forecasting-methods" id="toc-forecasting-methods" class="nav-link" data-scroll-target="#forecasting-methods">Forecasting Methods</a>
+  <ul class="collapse">
+  <li><a href="#freight-forecasting" id="toc-freight-forecasting" class="nav-link" data-scroll-target="#freight-forecasting">Freight Forecasting</a></li>
+  <li><a href="#foreign-exchange-forecasting" id="toc-foreign-exchange-forecasting" class="nav-link" data-scroll-target="#foreign-exchange-forecasting">Foreign Exchange Forecasting</a></li>
+  <li><a href="#portfolio-impact-forecasting" id="toc-portfolio-impact-forecasting" class="nav-link" data-scroll-target="#portfolio-impact-forecasting">Portfolio Impact Forecasting</a></li>
+  </ul></li>
+  <li><a href="#applications-to-process-modeling" id="toc-applications-to-process-modeling" class="nav-link" data-scroll-target="#applications-to-process-modeling">Applications To Process Modeling</a>
+  <ul class="collapse">
+  <li><a href="#process-driven-financial-forecasting" id="toc-process-driven-financial-forecasting" class="nav-link" data-scroll-target="#process-driven-financial-forecasting">Process-Driven Financial Forecasting</a></li>
+  <li><a href="#execution-routing-models" id="toc-execution-routing-models" class="nav-link" data-scroll-target="#execution-routing-models">Execution &amp; Routing Models</a></li>
+  <li><a href="#systemic-risk-network-flows" id="toc-systemic-risk-network-flows" class="nav-link" data-scroll-target="#systemic-risk-network-flows">Systemic Risk &amp; Network Flows</a></li>
+  </ul></li>
+  <li><a href="#risk-industry-quantiative-application" id="toc-risk-industry-quantiative-application" class="nav-link" data-scroll-target="#risk-industry-quantiative-application">Risk Industry Quantiative Application</a>
+  <ul class="collapse">
+  <li><a href="#linear-non-linear-markets" id="toc-linear-non-linear-markets" class="nav-link" data-scroll-target="#linear-non-linear-markets">Linear &amp; Non-Linear Markets</a></li>
+  <li><a href="#taylor-series-expansion" id="toc-taylor-series-expansion" class="nav-link" data-scroll-target="#taylor-series-expansion">Taylor Series Expansion</a></li>
+  <li><a href="#applications-in-risk-management" id="toc-applications-in-risk-management" class="nav-link" data-scroll-target="#applications-in-risk-management">Applications in Risk Management:</a></li>
+  </ul></li>
+  <li><a href="#mental-model-application-exercise" id="toc-mental-model-application-exercise" class="nav-link" data-scroll-target="#mental-model-application-exercise">Mental Model Application Exercise</a>
+  <ul class="collapse">
+  <li><a href="#scenario-black-powder-broken-promises" id="toc-scenario-black-powder-broken-promises" class="nav-link" data-scroll-target="#scenario-black-powder-broken-promises">Scenario: Black Powder &amp; Broken Promises</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Boyko Wealth Quant Day</h1>
+<p class="subtitle lead">4th Edition</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Brayden Boyko </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 19, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<hr>
+<ul>
+<li>Regional Wheat Cash, Forwards, Swaps (Prairie wheat - CWRS13.5, DHRSW15.5, KC HRW11)</li>
+<li>Exchange Traded Futures (WTI Crude Oil, Brent Crude Oil)</li>
+<li>Bootstrapping Yield Curves, Swap Curves, Local Volatility (Dupire Framework)</li>
+<li>Distressed Debt Modeling</li>
+<li>Tree’s and Gradient Boosts (Noah’s Model)</li>
+<li>Forecasting Methods</li>
+<li>Application’s To Process Modeling</li>
+<li>Risk Industry Math Application (Taylor Series Expansion, Non-Linear vs Linear Markets)</li>
+<li>Mental Model Application Exercise</li>
+</ul>
+<hr>
+</section>
+<section id="regional-commodities-market-for-wheat" class="level2">
+<h2 class="anchored" data-anchor-id="regional-commodities-market-for-wheat">Regional Commodities Market For Wheat</h2>
+<p><strong>Purpose:</strong> Provide a viable market for the trade of real assests in most cases.</p>
+<p>Regional markets are crucial to the global wheat trade because they reflect the local supply and demand dynamics, quality specifications, logistical constraints, and pricing mechanisms that global benchmarks often overlook. While futures contracts like those traded on MGEX, KCBT, and CBOT serve as valuable pricing references, they cannot fully capture the nuances of protein content, moisture levels, transportation costs, or storage availability that vary across regions. For example, Canadian Western Spring Red (CWSR13.5) may command a premium over MGEX due to its high protein content and milling quality, while Kansas HRW11 trades at a discount depending on feed demand or harvest quality. Regional markets also enable farmers, elevators, and millers to transact on basis differentials, manage localized risk, and make logistics-driven decisions. As such, understanding regional price behavior is essential for accurate valuation, effective hedging, and ensuring efficient grain flow from farm to end-user.</p>
+<p><strong>Regional Markets play a crucial role in actually delivering the goods that are traded.</strong></p>
+<p><em>Key Grades of Interest:</em></p>
+<ul>
+<li>CWSR 13.5% – High-protein, spring wheat (Canada)</li>
+<li>DHRSW 15.5% – Premium hard red spring (USA)</li>
+<li>KCHRW 11% – Mid-protein hard red winter wheat (USA)</li>
+</ul>
+<section id="fundamentals-of-regional-markets" class="level3">
+<h3 class="anchored" data-anchor-id="fundamentals-of-regional-markets">Fundamentals of Regional Markets</h3>
+<p>Regional &amp; physical trading desks are often hired by producers to manage positions. They act as the barrier between risk and the global makret demand for an actual product.</p>
+<section id="describing-basis-and-basis-risk-measurement" class="level4">
+<h4 class="anchored" data-anchor-id="describing-basis-and-basis-risk-measurement">Describing Basis And Basis Risk Measurement</h4>
+<p><em>Definition of Basis</em></p>
+<p><span class="math display">\[
+Basis = Cash.price − Futures.price
+\]</span></p>
+<p><em>Reflects:</em></p>
+<ul>
+<li>local supply/demand</li>
+<li>transportation costs</li>
+<li>quality differentials</li>
+<li>timing</li>
+</ul>
+<section id="sources-of-basis-risk" class="level5">
+<h5 class="anchored" data-anchor-id="sources-of-basis-risk">Sources of Basis Risk</h5>
+<ul>
+<li>Regional supply shocks impacting cash prices</li>
+<li>Freight rate volatility and rail capacity constraints</li>
+<li>Variations in protein content and grade premiums</li>
+<li>Seasonal storage costs and inventory levels</li>
+<li>Timing mismatches between physical delivery and futures contract expiry</li>
+</ul>
+</section>
+<section id="quantitative-measurement-techniques" class="level5">
+<h5 class="anchored" data-anchor-id="quantitative-measurement-techniques">Quantitative Measurement Techniques</h5>
+<p><em>Statistical analysis:</em> Historical basis volatility (standard deviation, variance), Autocorrelation and mean reversion patterns in basis:</p>
+<p><span class="math display">\[
+\rho_k = \frac{\sum_{t=k+1}^{T} (x_t - \bar{x})(x_{t-k} - \bar{x})}{\sum_{t=1}^{T} (x_t - \bar{x})^2}
+\]</span></p>
+<p><em>Time series models:</em> ARIMA, GARCH to model basis dynamics and conditional volatility</p>
+<p><strong>ARIMA(p,d,q)</strong></p>
+<p><span class="math display">\[
+\phi(B)(1 - B)^d x_t = \theta(B)\varepsilon_t
+\]</span></p>
+<p><strong>GARCH(1,1)</strong></p>
+<p><span class="math display">\[
+\varepsilon_t = \sigma_t z_t \sigma_t^2 = \alpha_0 + \alpha_1 \varepsilon_{t-1}^2 + \beta_1 \sigma_{t-1}^2
+\]</span></p>
+<p><em>Factor models:</em> Decompose basis risk drivers (freight rates, local demand, quality spreads)</p>
+<p><span class="math display">\[
+\text{Basis}_t = \beta_0 + \beta_1 F_{1,t} + \beta_2 F_{2,t} + \dots + \beta_k F_{k,t} + \varepsilon_t
+\]</span></p>
+<p><em>Cointegration and Spread Analysis:</em> Test long-run equilibrium relationships between cash and futures prices, Identify structural breaks due to logistics or policy changes</p>
+<p>Step 1 Regression: <span class="math display">\[
+y_t = \alpha + \beta x_t + \varepsilon_t
+\]</span></p>
+<p>Step 2 Test Residuals: <span class="math display">\[
+\Delta \varepsilon_t = \gamma \varepsilon_{t-1} + u_t
+\]</span></p>
+<p><strong>If gamma &lt; 0 and significant, y and x are cointegrated</strong></p>
+<p><em>Hint: Cointegration Tests a special relationship between two or more non-stationary time series. Even if each series individually wanders over time (i.e., is non-stationary), a certain linear combination of them can be stationary—meaning their differences or deviations from each other remain stable over time.</em></p>
+</section>
+<section id="risk-modeling-hedging-implications" class="level5">
+<h5 class="anchored" data-anchor-id="risk-modeling-hedging-implications">Risk Modeling &amp; Hedging Implications</h5>
+<p><em>Basis risk impacts hedge effectiveness—residual risk after futures hedging</em></p>
+<ul>
+<li>Model basis distributions to estimate Value-at-Risk (VaR) and Expected Shortfall (ES)</li>
+<li>Use basis forecasts to optimize hedge ratios and timing decisions</li>
+<li>Scenario and stress testing for extreme basis deviations (e.g., rail strikes)</li>
+</ul>
+</section>
+<section id="data-inputs-and-challenges" class="level5">
+<h5 class="anchored" data-anchor-id="data-inputs-and-challenges">Data Inputs and Challenges</h5>
+<ul>
+<li>Requires granular regional cash prices, posted bids, and freight data</li>
+<li>Sparse or irregular data complicates modeling accuracy</li>
+<li>Incorporate weather, crop condition, and logistical variables for improved predictions</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="fundamentals-of-wheat" class="level3">
+<h3 class="anchored" data-anchor-id="fundamentals-of-wheat">Fundamentals of Wheat</h3>
+<p><strong>Grade Characteristics &amp; Quality Metrics</strong></p>
+<ul>
+<li>Protein content, gluten strength, falling number, milling yield</li>
+<li>Quality drives end-use segmentation: bread, pasta, noodles, feed</li>
+<li>Protein premiums/discounts critically influence pricing</li>
+</ul>
+<p><strong>Production Regions &amp; Agronomic Profiles</strong></p>
+<ul>
+<li>CWSR13.5: Canadian Prairies (Alberta, Saskatchewan, Manitoba)</li>
+<li>DHRSW15.5: U.S. Northern Plains (ND, MT, SD) – premium bread wheat</li>
+<li>KC HRW11: U.S. Southern Plains (KS, OK, TX) – versatile milling/feed use</li>
+</ul>
+<p><strong>Transportation &amp; Elevation Networks</strong></p>
+<ul>
+<li>Major railroads: CP, CN, BNSF facilitate grain flows to export terminals</li>
+<li>Key export gateways: Pacific Northwest (PNW), Gulf of Mexico ports</li>
+<li>Elevators impact local basis via storage fees, capacity, and market access</li>
+<li>Freight and logistics bottlenecks are primary drivers of basis volatility</li>
+</ul>
+<p><strong>Market Interaction</strong></p>
+<ul>
+<li>Regional markets translate quality and logistics factors into basis spreads</li>
+<li>Provide granular price discovery beyond global futures benchmarks</li>
+<li>Enable effective hedging and arbitrage of protein and freight differentials</li>
+</ul>
+</section>
+<section id="trading-cash" class="level3">
+<h3 class="anchored" data-anchor-id="trading-cash">Trading Cash</h3>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>Cash trading forms the foundation of physical wheat markets, involving the buying and selling of actual grain deliveries rather than financial contracts. Successful cash trading requires a deep understanding of local supply-demand dynamics, logistics, grade quality, and timing, as well as the ability to manage basis risk and anticipate market dislocations. Traders operate at the intersection of agronomic cycles, infrastructure constraints, and macroeconomic factors, employing both quantitative models and mental heuristics to optimize purchase and sale decisions.</p>
+</section>
+<section id="key-strategies-in-cash-trading" class="level4">
+<h4 class="anchored" data-anchor-id="key-strategies-in-cash-trading">Key Strategies in Cash Trading</h4>
+<ul>
+<li><strong>Basis Trading</strong> Exploit discrepancies between local cash prices and futures markets by buying physical grain when the basis is cheap (large negative basis) and selling when the basis tightens, often linked to harvest cycles or transportation bottlenecks.</li>
+<li><strong>Grain Origination and Forward Contracting</strong> Lock in supply early by contracting with farmers or elevators at attractive prices to manage inventory and reduce exposure to volatile spot prices.</li>
+<li><strong>Grade and Protein Arbitrage</strong> Identify quality differentials within regional markets (e.g., premium protein content in CWSR13.5) and leverage price spreads between grades or locations to maximize returns.</li>
+<li><strong>Logistics Optimization</strong> Use knowledge of railcar availability, terminal capacity, and export schedules to time trades for maximal margin capture, particularly during periods of infrastructure stress.</li>
+<li><strong>Inventory and Storage Plays</strong> Take positions based on seasonal carry costs, storage availability, and anticipated changes in demand to profit from price convergence or divergence over time.</li>
+</ul>
+</section>
+<section id="relevant-quantitative-models" class="level4">
+<h4 class="anchored" data-anchor-id="relevant-quantitative-models">Relevant Quantitative Models</h4>
+<p><strong>Basis Forecasting Models</strong> Time series and regression models incorporating freight rates, local supply indicators, and crop condition variables to predict basis movements and optimize hedge timing.</p>
+<p>Multivariate Regressions (Linear or Non-Linear) <span class="math display">\[
+\text{Basis}_t = \beta_0 + \beta_1 \cdot \text{Freight}_t + \beta_2 \cdot \text{Supply}_t + \beta_3 \cdot \text{Crop}_t + \varepsilon_t
+\]</span></p>
+<p><em>Question: In what Instance Would You Use Linear vs Non-Linear?</em></p>
+<p><strong>EXTRA: ARIMAX Model (Autoregressive Integrated Moving Average with eXogenous variables)</strong> <span class="math display">\[
+(1 - B)^d y_t = \alpha + \sum_{i=1}^{p} \phi_i y_{t-i} + \sum_{j=0}^{q} \theta_j \varepsilon_{t-j} + \sum_{k=0}^{r} \gamma_k x_{t-k} + \varepsilon_t
+\]</span></p>
+<p>May be used when:</p>
+<ul>
+<li>You have a time series with temporal dependence: Like in an ARIMA model, your target variable depends on its own past values (autoregression), differences to achieve stationarity (integration), and past errors (moving average).</li>
+<li>But you also have external predictors that you believe influence the target time series and want to include their effect explicitly. These predictors are called exogenous variables (X).</li>
+</ul>
+<p><strong>Mean Reversion Models</strong> Modeling basis or price spreads as mean-reverting stochastic processes (e.g., Ornstein-Uhlenbeck) to exploit temporary dislocations.</p>
+<p><span class="math display">\[
+dX_t = \theta (\mu - X_t) dt + \sigma dW
+\]</span></p>
+<p>This model is ideal for capturing temporary dislocations in basis or spread values.</p>
+<p><strong>Arbitrage Frameworks</strong> Identify cointegrated relationships between cash and futures prices or between regional wheat grades to inform spread trades.</p>
+<p><em>Engle-Granger Regression</em></p>
+<p><span class="math display">\[
+P^{\text{cash}}_t = \alpha + \beta P^{\text{futures}}_t + \varepsilon_t
+\]</span></p>
+<p><span class="math display">\[
+\text{Spread}_t = P^{\text{cash}}_t - \hat{\beta} P^{\text{futures}}_t
+\]</span></p>
+<p><strong>Risk-adjusted Pricing Models</strong> Incorporate volatility, liquidity premiums, and delivery risk to estimate fair value and set bid/ask spreads.</p>
+<p><em>Risk-Adjusted Basis Pricing (Fair Value):</em> <span class="math display">\[
+\text{Fair Basis}_t = E[\text{Basis}_{t+1}] - \lambda_1 \cdot \text{Volatility}_t - \lambda_2 \cdot \text{Liquidity}_t - \lambda_3 \cdot \text{DeliveryRisk}_t
+\]</span></p>
+</section>
+<section id="mental-models-and-heuristics" class="level4">
+<h4 class="anchored" data-anchor-id="mental-models-and-heuristics">Mental Models and Heuristics</h4>
+<p><strong>“Harvest Pressure” and “Demand Windows”</strong></p>
+<p>Recognize cyclical basis patterns linked to harvest timing and demand seasonality, which impact price and logistics.</p>
+<p><strong>“Railcar Dynamics”</strong></p>
+<p>Understand how railcar supply cycles cause swings in elevation spreads and basis risk.</p>
+<p><strong>“Quality Premium Persistence”</strong></p>
+<p>Anticipate how protein premiums behave across marketing years based on planting intentions and weather.</p>
+<p><strong>“Backwardation vs Contango”</strong></p>
+<p>Relate futures curve shape to storage incentives and physical market tightness.</p>
+<p><em>Contango</em></p>
+<p>(Futures price &gt; Spot price)</p>
+<ul>
+<li>Future prices increase with time.</li>
+<li>Often reflects storage costs, insurance, etc.</li>
+<li>Common in markets like oil or grains when supply is ample.</li>
+</ul>
+<p><em>Backwardation</em></p>
+<p>(Futures price &lt; Spot price)</p>
+<ul>
+<li>Future prices decrease with time.</li>
+<li>Often reflects immediate demand or scarcity.</li>
+<li>Seen when there’s fear of shortage or strong near-term demand.</li>
+</ul>
+<pre><code>Contango
+
+Price ↑
+       *
+     *
+   *
+ *
+*_________________________→ Time
+ Spot   Near   Far
+
+Backwardation
+
+Price ↑
+*
+  *
+    *
+      *
+        *
+*_________________________→ Time
+ Spot   Near   Far</code></pre>
+<p><strong>“Convergence Principle”</strong></p>
+<p>Futures prices and local cash prices must converge near delivery, providing arbitrage opportunities and hedge validation.</p>
+</section>
+<section id="portfolio-impact-in-physical-commodity-markets" class="level4">
+<h4 class="anchored" data-anchor-id="portfolio-impact-in-physical-commodity-markets">Portfolio Impact in Physical Commodity Markets</h4>
+<p>When trading physical commodities, importing or exporting them can directly influence regional supply-demand balances, causing price shifts that impact your portfolio in several ways:</p>
+<p><strong>1. Price Feedback Loop:</strong> Moving large volumes of a commodity into or out of a region can tighten or loosen local supply, shifting the local spot and forward prices.</p>
+<p>This feedback loop means your physical trades don’t just reflect market prices, they move them.</p>
+<p><strong>2. Basis Risk Exposure:</strong> Basis in this case is the price difference between two locations (e.g., Chicago wheat vs.&nbsp;Alberta wheat).</p>
+<p>Exporting from a low-price region to a high-price region may narrow the basis, affecting the profitability of spread trades or arbitrage strategies.</p>
+<p><strong>3. Inventory and Transport Capacity:</strong> Large-scale exports may reduce inventory or strain logistics, driving storage and transport costs up, which affects netbacks (revenue after costs) and portfolio value.</p>
+<p><strong>4. Regulatory and Infrastructure Constraints:</strong> Cross-border commodity flows can trigger tariffs, quotas, or geopolitical friction, introducing policy risk to your portfolio.</p>
+<p><em>Side Note: Power, in particular, may be limited by grid interconnection capacity, influencing locational marginal prices (LMPs) and congestion revenues.</em></p>
+<ol start="5" type="1">
+<li><strong>Strategic Market Influence:</strong> If you’re a large player, coordinated exports/imports can be used to intentionally influence prices in favor of your financial or physical positions (within legal limits).</li>
+</ol>
+<p><strong>This is especially true in illiquid or regionally fragmented markets.</strong></p>
+</section>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion</h4>
+<p>Cash trading is both art and science. While quantitative models provide powerful tools to measure and forecast basis and price risks, seasoned traders leverage experiential insights and market intuition to navigate complex, sometimes illiquid markets. The interplay between physical realities—like crop quality, transport constraints, and local demand—and financial instruments defines the success of cash trading strategies in wheat markets.</p>
+</section>
+</section>
+<section id="trading-forwards" class="level3">
+<h3 class="anchored" data-anchor-id="trading-forwards">Trading Forwards</h3>
+<p>Forward contracts are bilateral agreements to buy or sell wheat at a future date for a fixed price. Unlike standardized futures, forwards are customizable in terms of quantity, quality, location, and delivery window — making them central to physical supply chain coordination and price risk management. Traders use forwards to lock in margins, optimize basis exposure, manage logistical constraints, and monetize market views. For quants, forward trading introduces modeling challenges around credit risk, basis volatility, optionality, and convexity embedded in physical deal terms.</p>
+<section id="key-strategies-in-forward-trading" class="level4">
+<h4 class="anchored" data-anchor-id="key-strategies-in-forward-trading">Key Strategies in Forward Trading</h4>
+<ul>
+<li><strong>Pre-Harvest Forward Selling (Producers)</strong> Lock in revenue by selling grain forward at attractive price levels before harvest; traders take the other side, betting on yields, carry, and basis appreciation.</li>
+<li><strong>Consumer Coverage (Mills/Exporters)</strong> Buyers secure forward supply to manage cost certainty; traders structure offers based on expected logistics, harvest timing, and quality outlook.</li>
+<li><strong>Intertemporal Arbitrage (Carry Trades)</strong> Sell spot, buy deferred (or vice versa) when calendar spreads deviate from storage economics or futures curve signals.</li>
+<li><strong>Inland vs.&nbsp;Export Basis Forwarding</strong> Lock in attractive inland basis when export programs tighten local supply or exploit delayed rail availability by shifting delivery timelines.</li>
+<li><strong>Counterparty Optimization</strong> Trade around forward deals with varying credit, collateral, or margining terms to enhance return on capital or reduce working capital risk.</li>
+</ul>
+</section>
+<section id="relevant-quantitative-models-1" class="level4">
+<h4 class="anchored" data-anchor-id="relevant-quantitative-models-1">Relevant Quantitative Models</h4>
+<p><strong>Forward Curve Construction</strong> Use futures plus basis modeling to infer fair value forward prices across delivery months and locations (requires local basis term structure modeling).</p>
+<p><span class="math display">\[
+F_{t,T}^{\text{location}} = P_t^{\text{futures}} + B_{t,T}^{\text{location}}
+\]</span></p>
+<p><strong>Basis Term Structure Models</strong> Regression or machine learning models that forecast forward basis levels using predictors like weather forecasts, USDA yield estimates, freight spreads, and futures volatility.</p>
+<p><span class="math display">\[
+B_{t,T} = \beta_0 + \beta_1 \cdot \text{Weather}_t + \beta_2 \cdot \text{Yield}_t + \beta_3 \cdot \text{Freight}_t + \beta_4 \cdot \text{Volatility}_t + \varepsilon_t
+\]</span></p>
+<p><em>Predictors include weather forecasts, USDA yield estimates, freight spreads, and futures volatility. For ML, a nonlinear function learned by ML algorithm (e.g., random forest, neural net)</em></p>
+<p><strong>Credit-Adjusted Forward Pricing</strong> Integrate counterparty risk premiums (e.g., probability of default, LGD) into valuation models for off-exchange forward contracts. These do not exist in futures as the exchange ensures all parties can meet obligations. <span class="math display">\[
+F_t^{\text{credit}} = F_t^{\text{risk-free}} \cdot (1 - PD_t \cdot LGD_t)
+\]</span></p>
+<p><strong>Delivery Window Optionality Models</strong> Quantify the embedded optionality when delivery periods are flexible — e.g., binomial or simulations to value date flexibility.</p>
+<p><em>Bionmial Model</em> <span class="math display">\[
+V_0 = \sum_{i=0}^{n} \binom{n}{i} p^i (1-p)^{n-i} \cdot \max(F_{i} - K, 0)
+\]</span></p>
+<pre><code>        S * u^3
+         /   \
+    S * u^2   S * u^2 * d
+       / \       / \
+S * u   S * u * d   S * u * d^2
+   \     / \       /
+    S     S * d   S * d^2
+             \   /
+              S * d^3
+
+Legend:
+- S = Initial stock price
+- u = Up factor
+- d = Down factor (typically 1/u)</code></pre>
+<p><em>Simulations</em> <span class="math display">\[
+V_0 = \frac{1}{N} \sum_{i=1}^{N} \max(F_i - K, 0)
+\]</span></p>
+<p><strong>Storage and Logistics-Constrained Optimization</strong> Linear or mixed-integer programming models to determine optimal contract execution given elevation, transport, and warehousing capacity.</p>
+<p><em>Linear Programming Model (objective Function, Constraints)</em> <span class="math display">\[
+\max_{x} \sum_{i=1}^{n} p_i x_i
+\]</span></p>
+<p>Subject to: <span class="math display">\[
+\begin{aligned}
+&amp;\sum_{i=1}^{n} a_{ij} x_i \leq b_j \quad \text{(capacity constraints)} \\
+&amp;x_i \geq 0 \quad \text{(non-negativity)}
+\end{aligned}
+\]</span></p>
+<p><em>You may choose to add binary decision variables (refered to as digital or binary options):</em></p>
+<p><span class="math display">\[
+x_i \in \{0, 1\} \quad \text{(e.g., contract execution yes/no)}
+\]</span></p>
+</section>
+<section id="mental-models-and-heuristics-1" class="level4">
+<h4 class="anchored" data-anchor-id="mental-models-and-heuristics-1">Mental Models and Heuristics</h4>
+<p><strong>“The Forward Sets the Tone”</strong> Forwards influence spot values through expectations — not just of price, but of quality and availability. The forward is often the market’s fundamental anchor.</p>
+<p><strong>“Who Owns the Optionality?”</strong> Always ask whether the buyer or seller controls timing, quality, location — these asymmetries drive hidden value.</p>
+<p><strong>“Forward is a Basis Bet”</strong> Since the futures component is known, forward profitability is largely a function of basis moves and spread convergence.</p>
+<p><strong>“Liquidity Horizon Decay”</strong> The further out the forward, the less reliable the price — reflecting declining liquidity, higher uncertainty, and wider bid/ask spreads.</p>
+<p><strong>“You Trade the Forward, But You Manage the Physical”</strong> Execution risk matters: cash flow timing, grade delivery, contract enforcement — these turn theoretical edge into realized PnL.</p>
+</section>
+<section id="practical-considerations" class="level4">
+<h4 class="anchored" data-anchor-id="practical-considerations">Practical Considerations</h4>
+<ul>
+<li><strong>Mark-to-Market Complexity:</strong> Forwards lack transparent pricing — valuation requires internal curve models and external benchmarks for defensibility.</li>
+<li><strong>Hedging Challenges:</strong> Hedge effectiveness depends on correlation between the forward price and liquid futures — especially hard in niche grades or inland locations.</li>
+<li><strong>Contract Structuring:</strong> Detailed attention to clauses (e.g., force majeure, tolerance bands, allowable grades) affects risk exposure.</li>
+<li><strong>Counterparty Risk:</strong> In illiquid or volatile markets, credit terms can be as important as price — especially for large or deferred deliveries.</li>
+</ul>
+</section>
+<section id="conclusion-1" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-1">Conclusion</h4>
+<p>Trading wheat forwards is a hybrid of market speculation, operational planning, and risk transfer. While forwards are a vital tool for managing exposure and locking in returns, they also carry hidden risks, particularly around basis evolution, execution logistics, and contract flexibility. Quants must pair statistical rigor with commercial intuition to properly value and manage these instruments. The best forward traders don’t just predict prices, they understand flow, timing, and behavioral pressures in regional and global grain networks.</p>
+</section>
+</section>
+<section id="trading-swaps-and-structured-products" class="level3">
+<h3 class="anchored" data-anchor-id="trading-swaps-and-structured-products">Trading Swaps And Structured Products</h3>
+<p>Swaps and structured products represent the most customizable tools in the commodity trading arsenal; used for hedging, speculation, risk transformation, and deal structuring. While swaps are often linear instruments based on price indices, structured products introduce optionality, path-dependence, or condition-based payouts, creating nuanced payoff profiles tied to specific outcomes.</p>
+<ul>
+<li><strong>Swap:</strong> A bilateral agreement to exchange cash flows based on the movement of a reference index (e.g., wheat price, basis level, spread).</li>
+<li><strong>Structured Product:</strong> A custom contract (often swap-based) combining derivative components (options, forwards, triggers) to meet specific goals, such as downside protection, enhanced yield, or participation limits.</li>
+</ul>
+<section id="key-strategies-in-swaps-and-structured-products" class="level4">
+<h4 class="anchored" data-anchor-id="key-strategies-in-swaps-and-structured-products">Key Strategies In Swaps And Structured Products</h4>
+<ul>
+<li><strong>Basis Swaps</strong> Lock in a fixed basis between a regional cash index (e.g., CWSR13.5 – W MB) and a futures contract (e.g., MGEX HRS). Traded between commercial hedgers and grain traders.</li>
+<li><strong>Intercommodity Swaps</strong> Example: swap KC HRW vs.&nbsp;DHRSW15.5 to express quality or protein premium trades.</li>
+<li><strong>Calendar Swaps</strong> Receive near-term index, pay deferred index to trade curve steepness.</li>
+<li><strong>Price-for-Index Swaps</strong> Buyer pays a fixed price and receives a floating regional index (or vice versa)—used by mills and processors locking input costs.</li>
+<li><strong>Minimum Price Contracts (Producer-Oriented)</strong> Floor set with options embedded in a forward contract. Producer gets downside protection, and the trader gets optionality on upside.</li>
+<li><strong>Accumulator Swaps</strong> Grain is priced incrementally on each trading day if index stays within range (knock-out if breached). Useful when volatility is low and mean-reversion is expected.</li>
+<li><strong>Target Redemption Forwards</strong> The contract expires early once a cumulative profit threshold is hit. Used to reduce pricing duration and reward favorable early outcomes.</li>
+<li><strong>Bonus/Enhanced Price Contracts</strong> Provide a price premium to producers if a condition is met (e.g., deferred month index exceeds front month by a threshold). Optionality is sold in exchange for a fixed basis.</li>
+<li><strong>Barrier-Triggered Swaps</strong> Index-linked cash flow only activates if certain price or spread levels are reached (e.g., dry weather premium barrier).</li>
+</ul>
+</section>
+<section id="relevant-quantitative-models-2" class="level4">
+<h4 class="anchored" data-anchor-id="relevant-quantitative-models-2">Relevant Quantitative Models</h4>
+<p><strong>Local Volatility &amp; Skew Models (Dupire’s Equation):</strong> Price structured products with embedded options and triggers. <span class="math display">\[
+\sigma_{\text{loc}}^2(K, T) = \frac{\frac{\partial C}{\partial T}}{\frac{1}{2} K^2 \frac{\partial^2 C}{\partial K^2}}
+\]</span></p>
+<p><strong>Basis Curve Term Structure:</strong> Price long-dated basis swaps. <span class="math display">\[
+PV = \sum_{i=1}^{N} \left( B_{t,T_i}^{\text{location}} \cdot D_{t,T_i} \cdot \Delta_i \right)
+\]</span></p>
+<p><strong>Simulations:</strong> Model payout paths of accumulators and TRFs <span class="math display">\[
+V_0 = e^{-rT} \cdot \frac{1}{N} \sum_{i=1}^{N} \text{Payoff}(S_t^{(i)}
+\]</span></p>
+<p><strong>Copula Models:</strong> Model dependency structures in multi-index structured payouts <span class="math display">\[
+F(x_1, x_2, \dots, x_n) = C(F_1(x_1), F_2(x_2), \dots, F_n(x_n))
+\]</span></p>
+<p><em>Gaussian Copula</em> <span class="math display">\[
+C(u_1, u_2, \dots, u_n) = \Phi_{\Sigma}(\Phi^{-1}(u_1), \Phi^{-1}(u_2), \dots, \Phi^{-1}(u_n))
+\]</span></p>
+<p><strong>Credit Valuation Adjustment (CVA):</strong> Quantify bilateral risk on uncollateralized swap flows <span class="math display">\[
+\text{CVA} = (1 - R) \cdot \sum_{i=1}^{N} D_{t,T_i} \cdot EE(T_i) \cdot PD(T_i)
+\]</span></p>
+</section>
+<section id="mental-models" class="level4">
+<h4 class="anchored" data-anchor-id="mental-models">Mental Models</h4>
+<p><strong>“Spread-as-Asset Framework”</strong> View regional basis or inter-index spreads as independent risk assets with mean-reverting properties, volatility, and drift.</p>
+<p><strong>“Optionality = Asymmetry:”</strong> Structured products build asymmetry: limited loss for the client, skewed upside for the desk. Traders must price implied volatility, correlation (for dual index products), and forward skew.</p>
+<p><strong>“Embedded Credit Risk:”</strong> Uncollateralized structured deals carry embedded counterparty risk and require credit-adjusted pricing.</p>
+<p>“<strong>Customer Flow Recycling:</strong>” Trade desks warehouse structured product risk from one side (e.g., producer) and offload or hedge via swaps/futures/options.</p>
+</section>
+<section id="practical-considerations-1" class="level4">
+<h4 class="anchored" data-anchor-id="practical-considerations-1">Practical Considerations</h4>
+<ul>
+<li><strong>Documentation:</strong> Governed by ISDA/NAESB or bespoke long-form confirmations. Terms define notional, price reference, payout logic, optionality type, barrier levels, and maturity.</li>
+<li><strong>Liquidity:</strong> Swaps are dealer-driven; structured products are illiquid and usually unwound or novated with the originator.</li>
+<li><strong>Risk Management:</strong> Delta, gamma, and vega risks must be modeled for structured products—especially those with embedded options.</li>
+<li><strong>Counterparties:</strong> Grain elevators, co-ops, producers, exporters, importers, commercial banks, hedge funds, and structured ag desks.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="exchange-traded-futures-for-crude-oil" class="level2">
+<h2 class="anchored" data-anchor-id="exchange-traded-futures-for-crude-oil">Exchange Traded Futures For Crude Oil</h2>
+<section id="the-role-of-crude-oil-in-global-markets" class="level3">
+<h3 class="anchored" data-anchor-id="the-role-of-crude-oil-in-global-markets">The Role of Crude Oil in Global Markets</h3>
+<p>Crude oil is the world’s most actively traded commodity and a critical input across transportation, industry, and energy production. WTI (West Texas Intermediate) and Brent are the two dominant pricing benchmarks, used to price approximately:</p>
+<ul>
+<li>WTI: ~10–15% of globally traded crude</li>
+<li>Brent: ~60–70% of globally traded crude</li>
+</ul>
+<section id="wti-west-texas-intermediate" class="level4">
+<h4 class="anchored" data-anchor-id="wti-west-texas-intermediate">WTI (West Texas Intermediate)</h4>
+<ul>
+<li>Exchange: Traded on NYMEX (CME Group)</li>
+<li>Delivery Point: Cushing, Oklahoma</li>
+<li>Crude Type:
+<ul>
+<li>Light (39.6° API)</li>
+<li>Sweet (0.24% sulfur)</li>
+</ul></li>
+<li>Logistics:
+<ul>
+<li>Inland hub with extensive pipeline connections</li>
+<li>Vulnerable to storage constraints (e.g., April 2020 price crash to -$37)</li>
+</ul></li>
+<li>Physical Delivery:
+<ul>
+<li>Contracts can result in physical delivery at Cushing</li>
+<li>Drives strong convergence between futures and physical pricing</li>
+</ul></li>
+<li>Financial Settlement:
+<ul>
+<li>Daily rebalancing is required and completed by the exchanges</li>
+</ul></li>
+</ul>
+</section>
+<section id="brent-crude" class="level4">
+<h4 class="anchored" data-anchor-id="brent-crude">Brent Crude</h4>
+<ul>
+<li>Exchange: Traded on ICE (Intercontinental Exchange)</li>
+<li>Benchmark Type: Cash-settled (non-deliverable)</li>
+<li>Crude Type:
+<ul>
+<li>Blend of several North Sea crudes: Brent, Forties, Oseberg, Ekofisk, and Troll (BFOET)</li>
+<li>Light (38°–39° API) and sweet</li>
+</ul></li>
+<li>Logistics:
+<ul>
+<li>Offshore production; cargoes loaded onto tankers</li>
+<li>More flexible delivery profile than WTI<br>
+</li>
+</ul></li>
+<li>Dated Brent: Physical cargo benchmark used to settle ICE Brent futures via the BFOET forward stream</li>
+<li>Cash Settlement Mechanism: Uses “ICE Brent Index,” derived from traded prices and assessments over the last few days before expiry</li>
+</ul>
+</section>
+<section id="benchmark-use-cases-and-market-roles" class="level4">
+<h4 class="anchored" data-anchor-id="benchmark-use-cases-and-market-roles">Benchmark Use Cases and Market Roles</h4>
+<p><strong>WTI:</strong> Dominates North American pricing. Key tool for hedging US shale productio. Heavily impacted by inland logistics, refinery demand, and US export volumes</p>
+<p><strong>Brent:</strong> Global seaborne benchmark; pricing for Middle East, African, and European crudes is often set as differential to Brent. Used by international refiners and sovereign producers. Influences pricing of long-haul arbitrage flows (e.g., West Africa to China)</p>
+</section>
+</section>
+<section id="market-participants-and-flows" class="level3">
+<h3 class="anchored" data-anchor-id="market-participants-and-flows">Market Participants and Flows</h3>
+<ul>
+<li>Producers: Hedge production revenue (e.g., Exxon, BP, Saudi Aramco)</li>
+<li>Refiners: Hedge input costs (e.g., Valero, Shell, Sinopec)</li>
+<li>Traders/Marketers: Glencore, Vitol, Trafigura – engage in cross-benchmark arbitrage</li>
+<li>Governments: Use futures for budget hedging (Mexico, for example)</li>
+</ul>
+<section id="liquidity-and-volume-dynamics" class="level4">
+<h4 class="anchored" data-anchor-id="liquidity-and-volume-dynamics">Liquidity and Volume Dynamics</h4>
+<ul>
+<li><strong>WTI CL Futures:</strong> Most liquid crude contract globally. High turnover in front 1–3 months</li>
+<li><strong>Brent BZ Futures:</strong> Slightly lower daily volume, but higher open interest on longer maturities</li>
+<li><strong>ICE Brent Options and Calendar Spreads are widely used for structured positions</strong></li>
+</ul>
+</section>
+</section>
+<section id="futures-rollover-modeling-market-structure" class="level3">
+<h3 class="anchored" data-anchor-id="futures-rollover-modeling-market-structure">Futures Rollover (Modeling &amp; Market Structure)</h3>
+<p>Futures contracts have expiry dates, necessitating position rolling to maintain exposure. Rollover is the process of closing a position in a near-month futures contract and opening a position in a deferred-month contract (e.g., from CL1 to CL2).</p>
+<p>Occurs over a defined window, typically during the last 3–5 trading days before expiry.</p>
+<p>Traders:</p>
+<ul>
+<li>Sell expiring contract (e.g., CL1)</li>
+<li>Simultaneously buy deferred contract (e.g., CL2)</li>
+</ul>
+<p><strong>The spread between front and deferred contracts is crucial:</strong></p>
+<ul>
+<li>Contango (CL2 &gt; CL1): Rollover implies a loss (“negative roll yield”)</li>
+<li>Backwardation (CL2 &lt; CL1): Rollover implies a gain (“positive roll yield”)</li>
+</ul>
+<section id="quantitative-modeling-of-rollover" class="level4">
+<h4 class="anchored" data-anchor-id="quantitative-modeling-of-rollover">Quantitative Modeling Of Rollover</h4>
+<p><strong>Roll Yield Modeling</strong> Time series analysis (ARIMA, Kalman Filters) used to forecast roll yield. Roll yield volatility is an input in strategy backtests for commodity funds.</p>
+<p><span class="math display">\[
+\text{RollYield}_t = F_{t}^{\text{near}} - F_{t}^{\text{far}}
+\]</span></p>
+<p><em>Roll ARIMA</em> <span class="math display">\[
+\phi(B)(1 - B)^d \text{RollYield}_t = \theta(B)\varepsilon_t
+\]</span></p>
+<p><em>State Space Model (Kalman)</em> <span class="math display">\[
+\begin{aligned}
+x_{t+1} &amp;= A x_t + w_t \quad \text{(state equation)} \\
+y_t &amp;= H x_t + v_t \quad \text{(observation equation)}
+\end{aligned}
+\]</span></p>
+<p><strong>Term Structure Modeling</strong> Use of spline interpolation, Nelson-Siegel, or Cubic Spline Models to fit forward curve. Principal component analysis (PCA) often used to reduce dimensionality:</p>
+<ul>
+<li>Level (overall price),</li>
+<li>Slope (contango/backwardation),</li>
+<li>Curvature (convexity of term structure).</li>
+</ul>
+<p><em>Gaussian HJM or LIBOR Market Models adapted to commodity term structure</em></p>
+<p><em>Cubic Spline</em> <span class="math display">\[
+f(x) = a_i + b_i(x - x_i) + c_i(x - x_i)^2 + d_i(x - x_i)^3 \quad \text{for } x \in [x_i, x_{i+1}]
+\]</span></p>
+<p><em>Nelson Siegel</em> <span class="math display">\[
+y(t) = \beta_0 + \beta_1 \cdot \frac{1 - e^{-\lambda t}}{\lambda t} + \beta_2 \cdot \left( \frac{1 - e^{-\lambda t}}{\lambda t} - e^{-\lambda t} \right)
+\]</span></p>
+<p><em>PCA</em> <span class="math display">\[
+F_t = \mu + \sum_{i=1}^{k} \alpha_i(t) \cdot PC_i
+\]</span></p>
+<p><em>Gaussian HJM Model (Commodity Adaptation)</em> <span class="math display">\[
+df(t,T) = \alpha(t,T) dt + \sigma(t,T) dW_t
+\]</span></p>
+<p><strong>Inventory-Based Models</strong> Quantitative linkage to physical fundamentals:</p>
+<ul>
+<li>Theory of Storage: Links futures curve shape to inventory levels.</li>
+<li>Structural models incorporate storage constraints, seasonality, and shipping lags.</li>
+</ul>
+<p><em>Convenience Yield (Theory of Storage)</em> <span class="math display">\[
+F_t = S_t \cdot e^{(r + u - c)(T - t)}
+\]</span></p>
+<p><em>Inventory Dynamics</em> <span class="math display">\[
+I_{t+1} = I_t + S_t - D_t - \text{ShippingLag}_t
+\]</span></p>
+<p><strong>Impact on P&amp;L and Strategy</strong> Rollover cost is a drag on returns for long-only passive strategies in contango markets. Traders model the optimal roll timing using:</p>
+<ul>
+<li>Volume and open interest curves</li>
+<li>Historical roll window profitability</li>
+<li>Bid-ask spreads and liquidity clustering</li>
+<li>Use of algorithmic execution to minimize market impact.</li>
+</ul>
+<p><em>Average Historical Roll Return</em> <span class="math display">\[
+\text{RollReturn}_{\text{window}} = \frac{1}{N} \sum_{i=1}^{N} (F_{i}^{\text{near}} - F_{i}^{\text{far}})
+\]</span></p>
+<p><em>Market Impact Cost</em> <span class="math display">\[
+\text{Cost}_t = \text{Spread}_t + \gamma \cdot \text{Volume}_t^{-1} + \delta \cdot \text{Volatility}_t
+\]</span></p>
+<p><em>Minimize Slippage (Algorithmic Model)</em> <span class="math display">\[
+\min_{x_t} \sum_{t=1}^{T} \left( P_t^{\text{exec}} - P_t^{\text{mid}} \right)^2
+\]</span></p>
+</section>
+</section>
+<section id="quantitative-models-trading-strategies-in-crude-oil-futures" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-models-trading-strategies-in-crude-oil-futures">Quantitative Models &amp; Trading Strategies in Crude Oil Futures</h3>
+<section id="momentum-term-structure-and-mean-reversion-factors" class="level4">
+<h4 class="anchored" data-anchor-id="momentum-term-structure-and-mean-reversion-factors">Momentum, Term Structure, and Mean-Reversion Factors</h4>
+<ul>
+<li><strong>Price Momentum</strong>
+<ul>
+<li>Short-term trend-following systems across the front-end of the WTI and Brent curves</li>
+<li>Momentum tends to be strongest in deferred months during dislocation or inventory shifts</li>
+<li>Signals based on rolling returns <span class="math display">\[
+R_t^{(n)} = \frac{P_t - P_{t-n}}{P_{t-n}}
+\]</span></li>
+</ul></li>
+<li><strong>Term Structure Modeling</strong>
+<ul>
+<li>Curve shape (contango vs.&nbsp;backwardation) reflects storage costs and market tightness</li>
+<li>Traders extract signals from:
+<ul>
+<li>Slope: front-month minus 6-month price (term premium)</li>
+<li>Roll yield: return from holding futures through contango/backwardation</li>
+<li>Kurtosis/convexity: curve non-linearities and implied volatility impact <span class="math display">\[
+\text{Slope}_t = F_t^{(1)} - F_t^{(6)}
+\]</span> <span class="math display">\[
+\text{RollYield}_t = F_t^{\text{near}} - F_t^{\text{far}}
+\]</span> <span class="math display">\[
+\text{Kurtosis}_t = \frac{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^4}{\left( \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2 \right)^2}
+\]</span> <span class="math display">\[
+\text{Convexity}_t = \frac{d^2F(T)}{dT^2}
+\]</span></li>
+</ul></li>
+</ul></li>
+<li><strong>Mean-Reversion Strategies</strong>
+<ul>
+<li>Exploit reversion of spreads between nearby contracts (e.g., CL M1-M2)</li>
+<li>Useful during stable inventory regimes and defined economic cycles</li>
+<li>Pair with volatility filters and inventory signals (EIA weekly reports, floating storage)</li>
+</ul></li>
+</ul>
+<p><em>Nearby Contract Spread</em> <span class="math display">\[
+\text{Spread}_t = F_t^{\text{M1}} - F_t^{\text{M2}}
+\]</span></p>
+<p><em>Leads To Mean Reversion Signal (Basic)</em> <span class="math display">\[
+Z_t = \frac{\text{Spread}_t - \mu_{\text{Spread}}}{\sigma_{\text{Spread}}}
+\]</span></p>
+<p><em>Which Leads Into Conditional Trading Rule</em> <span class="math display">\[
+\text{Trade}_t =
+\begin{cases}
+\text{Execute}, &amp; \text{if } \sigma_t &lt; \sigma_{\text{threshold}} \text{ and inventory signal is stable} \\
+\text{Hold}, &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<ul>
+<li><strong>Machine Learning for Storage Optimization &amp; Spread Signals</strong>
+<ul>
+<li>Inventory-Based Models
+<ul>
+<li>Train models using EIA/IEA inventory data, tanker tracking, refinery margins</li>
+<li>Predict near-term curve shape changes based on tank top risk or drawdowns</li>
+</ul></li>
+<li>Feature Engineering Examples:
+<ul>
+<li>Time of year (seasonality)</li>
+<li>Crack spreads and refinery utilization</li>
+<li>Freight costs (Aframax rates, VLCC rates)</li>
+<li>Implied volatility skew (especially during geopolitical events)</li>
+</ul></li>
+<li>Algorithms Used:
+<ul>
+<li>Tree-based models: XGBoost, LightGBM for spread prediction</li>
+<li>RNN/LSTM: forecast curve evolution with sequential data</li>
+<li>Clustering (K-means, DBSCAN): regime identification for roll and basis modeling</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Application: Predict spreads, basis levels, or roll yield</strong></p>
+<p><em>Gradient Boosting Framework</em></p>
+<p><em>One tree isn’t great — so you stack trees, each one trying to fix the mistakes of the last. This is gradient boosting. Each tree focuses on what the previous tree got wrong. The model improves gradually, like a team of analysts refining a forecast together</em> <span class="math display">\[
+\mathcal{L} = \sum_{i=1}^{n} l(y_i, \hat{y}_i^{(t)}) + \sum_{k=1}^{t} \Omega(f_k)
+\]</span></p>
+<p><em>XGBoost Regularization Term</em></p>
+<p><em>XGBoost doesn’t just stack trees blindly. It penalizes overly complex trees to avoid overfitting (where the model memorizes instead of learning). The model prefers simpler trees, with fewer branches (called “leaves”) and smaller weights. Think of it like preferring general economic trends over hyper-specific, one-time events.</em> <span class="math display">\[
+\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
+\]</span></p>
+<p><strong>Application: Forecast term structure evolution using sequential data</strong></p>
+<p><em>Recurrent Neural Network (RNN)</em></p>
+<p><em>These models are like memory-driven forecasting tools. They take today’s data (say, the current wheat futures curve), remember what prices looked like yesterday, and try to forecast tomorrow. Useful when the order of events matters — like how price seasonality plays out over the crop year. It updates its “memory” each step with a blend of old and new information.</em> <span class="math display">\[
+h_t = \sigma(W_h h_{t-1} + W_x x_t + b)
+\]</span></p>
+<p><em>Long Short-Term Memory (LSTM) Cell</em></p>
+<p><em>A smarter version of RNN. It learns what’s important to remember (like harvest trends) and what to forget (like a random one-day spike). It has gates that control memory: Forget gate: What should I drop? Input gate: What new info should I learn? Output gate: What part of memory should I use now? It’s like a seasoned trader who knows what patterns matter and what noise to ignore.</em> <span class="math display">\[
+\begin{aligned}
+f_t &amp;= \sigma(W_f x_t + U_f h_{t-1} + b_f) \quad \text{(forget gate)} \\
+i_t &amp;= \sigma(W_i x_t + U_i h_{t-1} + b_i) \quad \text{(input gate)} \\
+o_t &amp;= \sigma(W_o x_t + U_o h_{t-1} + b_o) \quad \text{(output gate)} \\
+\tilde{c}_t &amp;= \tanh(W_c x_t + U_c h_{t-1} + b_c) \quad \text{(candidate)} \\
+c_t &amp;= f_t \cdot c_{t-1} + i_t \cdot \tilde{c}_t \quad \text{(cell state)} \\
+h_t &amp;= o_t \cdot \tanh(c_t) \quad \text{(hidden state)}
+\end{aligned}
+\]</span></p>
+<p><strong>Application: Regime identification for roll yield and basis modeling</strong></p>
+<p><em>K-means Clustering</em></p>
+<p><em>This method groups data points into similar “clusters.” For example, you can group days where roll yield is high vs.&nbsp;low, or where basis is widening vs.&nbsp;narrowing. It finds the “center” of each group and classifies everything around it. Think of it like sorting all past market days into buckets: “normal,” “volatile,” and “weird.”</em> <span class="math display">\[
+\min_{C} \sum_{i=1}^{k} \sum_{x \in C_i} \|x - \mu_i\|^2
+\]</span></p>
+<p><em>Used to classify market regimes (e.g., contango vs.&nbsp;backwardation).</em></p>
+<p><em>DBSCAN (Density-Based Spatial Clustering)</em></p>
+<p><em>Unlike K-means, this finds dense clusters of data without assuming a fixed number of groups. It also flags outliers — like a sudden shock in wheat basis due to an export ban. Great for unusual market behavior, like basis blowouts or temporary dislocations. It focuses on how crowded an area of the data is, not how close it is to a center.</em> <span class="math display">\[
+|\mathcal{N}_\varepsilon(p)| \geq \text{MinPts}
+\]</span></p>
+</section>
+<section id="cross-commodity-modeling-brent-wti-arb-crack-spreads" class="level4">
+<h4 class="anchored" data-anchor-id="cross-commodity-modeling-brent-wti-arb-crack-spreads">Cross-Commodity Modeling (Brent-WTI Arb, Crack Spreads)</h4>
+<ul>
+<li><strong>Brent-WTI Arbitrage:</strong> Driven by logistics (e.g., Cushing capacity, export terminals), quality spreads, and geopolitics. Hedgers use statistical arbitrage models incorporating freight and quality premia. Cointegration models used to identify mean-reverting spread bounds</li>
+<li><strong>Crack Spreads (Refining Margins):</strong> 3:2:1 crack: 3 crude → 2 gasoline + 1 distillate (proxy for refinery profitability). Used in both physical optimization and speculative positioning. PCA or machine learning models used to forecast spread compression/expansion</li>
+<li><strong>Fuel Switching Models:</strong> Model substitution between distillate and residual fuels. Link weather forecasts, power plant switching behavior, and LNG flows</li>
+</ul>
+</section>
+</section>
+<section id="calendar-spreads-curve-trades" class="level3">
+<h3 class="anchored" data-anchor-id="calendar-spreads-curve-trades">Calendar Spreads &amp; Curve Trades</h3>
+<p>Crude oil futures curves (especially WTI and Brent) are among the most liquid and structurally rich in commodities. Traders exploit the shape and movement of these curves for both speculative and hedging purposes.</p>
+<section id="trading-front-vs.-deferred-spreads" class="level4">
+<h4 class="anchored" data-anchor-id="trading-front-vs.-deferred-spreads">Trading Front vs.&nbsp;Deferred Spreads</h4>
+<p><strong>Calendar Spread Definition:</strong> Long one futures contract and short another further out on the curve — e.g., CL M1-M2 (July minus August WTI).</p>
+<p><strong>Front Spreads (M1-M2, M2-M3):</strong></p>
+<ul>
+<li>Highly sensitive to inventory surprises (EIA data).</li>
+<li>React quickly to Cushing dynamics, pipeline flows, or refinery outages.</li>
+<li>Often exhibit greater volatility, ideal for short-term trades and roll strategies.</li>
+</ul>
+<p><strong>Deferred Spreads (M6-M12, M12-M18):</strong></p>
+<ul>
+<li>Reflect longer-term supply/demand expectations, OPEC policy, and macro signals.</li>
+<li>Better suited for macro trend-following or structural positioning (e.g., contango decay).</li>
+</ul>
+</section>
+<section id="butterfly-trades-term-structure-steepenersflatteners" class="level4">
+<h4 class="anchored" data-anchor-id="butterfly-trades-term-structure-steepenersflatteners">Butterfly Trades &amp; Term Structure Steepeners/Flatteners</h4>
+<p><strong>Butterfly Spread:</strong></p>
+<ul>
+<li>Structure: Long 1st + 3rd contract, short 2nd contract × 2 e.g., (CL M1 + CL M3) - 2 × CL M2</li>
+<li>Captures curvature or kinks in the curve.</li>
+<li>Often used to express relative value among three nearby months — great for neutral macro exposure.</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Detect dislocations caused by refinery maintenance, roll schedule distortions, or fund rebalancing.</li>
+<li>Trade inventory shifts or logistical constraints (e.g., hurricane season risk).</li>
+</ul>
+<p><strong>Steepeners / Flatteners:</strong></p>
+<ul>
+<li>Steepener: Long front contract, short deferred = bet on curve becoming more contango</li>
+<li>Flattener: Long deferred, short front = bet on curve moving toward backwardation</li>
+</ul>
+<p><em>Useful around OPEC announcements, geopolitical tension, or seasonal demand shifts.</em></p>
+</section>
+<section id="seasonal-storage-spread-trading" class="level4">
+<h4 class="anchored" data-anchor-id="seasonal-storage-spread-trading">Seasonal Storage Spread Trading</h4>
+<p><strong>Crude Oil Storage Economics:</strong></p>
+<ul>
+<li>When contango widens, storage becomes profitable → bullish on deferred contracts.</li>
+<li>When backwardation dominates, storage loses value → bearish on deferred.</li>
+</ul>
+<p><strong>Seasonal Patterns:</strong></p>
+<ul>
+<li>Q2–Q3: Refinery demand spikes; inventory draws expected → spreads tighten.</li>
+<li>Q4–Q1: Post-summer lull; storage builds → spreads widen (esp.&nbsp;M11-M1 or M12-M2)</li>
+<li>Traders use seasonal models and multi-year averages to forecast these changes.</li>
+</ul>
+</section>
+</section>
+<section id="algorithmic-and-systematic-futures-trading" class="level3">
+<h3 class="anchored" data-anchor-id="algorithmic-and-systematic-futures-trading">Algorithmic and Systematic Futures Trading</h3>
+<section id="execution-strategies-in-futures-markets" class="level4">
+<h4 class="anchored" data-anchor-id="execution-strategies-in-futures-markets">Execution Strategies in Futures Markets</h4>
+<ul>
+<li><p><strong>TWAP (Time-Weighted Average Price):</strong> Splits large orders evenly over a set time window. Useful in illiquid periods to minimize signaling and market impact. Applied in Brent quarterly contracts where liquidity is thinner beyond the front month. <span class="math display">\[
+\text{TWAP} = \frac{1}{T} \sum_{t=1}^{T} P_t
+\]</span></p></li>
+<li><p><strong>VWAP (Volume-Weighted Average Price):</strong> Allocates order slices based on historical intraday volume profiles. Effective in the highly liquid CL (WTI) front contracts where market volume is front-loaded. Used to benchmark performance or reduce slippage versus volume benchmarks. <span class="math display">\[
+\text{VWAP} = \frac{\sum_{t=1}^{T} P_t \cdot V_t}{\sum_{t=1}^{T} V_t}
+\]</span></p></li>
+<li><p><strong>IS (Implementation Shortfall) / POV (Percentage of Volume):</strong> Dynamic execution based on real-time market conditions. POV adapts order size to current market activity, useful in fast-moving crude markets with sudden liquidity shifts due to macro news. IS optimizes for minimizing opportunity cost vs market impact; relevant when executing structured positions (e.g., butterflies or spreads).</p></li>
+</ul>
+<p><em>IS Cost</em> <span class="math display">\[
+\text{IS} = \sum_{t=1}^{T} Q_t (P_t - P_0)
+\]</span></p>
+<p><em>Optimization Function</em> <span class="math display">\[
+\min_{Q_t} \left[ \sum_{t=1}^{T} Q_t (P_t - P_0) + \lambda \cdot \text{Impact}(Q_t) \right]
+\]</span></p>
+<p><em>POV</em> <span class="math display">\[
+Q_t = \alpha \cdot V_t^{\text{market}}
+\]</span></p>
+</section>
+<section id="latency-arbitrage-and-microstructure-exploitation" class="level4">
+<h4 class="anchored" data-anchor-id="latency-arbitrage-and-microstructure-exploitation">Latency Arbitrage and Microstructure Exploitation</h4>
+<ul>
+<li><p><strong>Co-location &amp; Feed Latency:</strong> Traders with low-latency access can detect price moves on one venue (e.g., ICE Brent) and trade ahead of lagged responses on another (e.g., NYMEX WTI). Particularly active during inventory report releases or geopolitical headlines. <span class="math display">\[
+\Delta_t = P_t^{\text{Venue A}} - P_t^{\text{Venue B}}
+\]</span> <span class="math display">\[
+\text{Execute}_t =
+\begin{cases}
+\text{Buy Venue B}, &amp; \text{if } \Delta_t &gt; \theta \\
+\text{Sell Venue B}, &amp; \text{if } \Delta_t &lt; -\theta
+\end{cases}
+\]</span></p></li>
+<li><p><strong>Quote-Stuffing &amp; Spoofing Detection Models:</strong> Systematic strategies filter for aggressive passive orders to avoid being run over. Feature engineering includes cancel rates, order book churn, and order-to-trade ratios.</p></li>
+</ul>
+<p><em>Cancel Rate</em> <span class="math display">\[
+\text{CancelRate}_t = \frac{C_t}{O_t}
+\]</span></p>
+<p><em>Order Book Chrun</em> <span class="math display">\[
+\text{Churn}_t = \frac{\sum_{i=1}^{N} |\Delta Q_i|}{Q_t^{\text{total}}}
+\]</span></p>
+<p><em>Order-To-Trade</em> <span class="math display">\[
+\text{OTR}_t = \frac{O_t}{T_t}
+\]</span></p>
+<ul>
+<li><strong>Microstructure Signal Models:</strong> Use imbalance in Level 2 order books (bid/ask queue depth) to predict short-term direction. Directional edge often strongest in front-month CL contracts with deepest book data. Incorporates short-term limit order fill probability models and Markov Chain simulations of book transitions.</li>
+</ul>
+<p><em>Level 2 Imbalance</em> <span class="math display">\[
+\text{Imbalance}_t = \frac{Q_t^{\text{bid}} - Q_t^{\text{ask}}}{Q_t^{\text{bid}} + Q_t^{\text{ask}}}
+\]</span></p>
+<p><em>Fill Probability</em> <span class="math display">\[
+P_{\text{fill}} = f(\text{QueuePosition}, \text{TradeRate}, \text{Imbalance})
+\]</span></p>
+<p><em>Markov Chain For Book Transitions</em> <span class="math display">\[
+P =
+\begin{bmatrix}
+p_{11} &amp; p_{12} &amp; \dots &amp; p_{1n} \\
+p_{21} &amp; p_{22} &amp; \dots &amp; p_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+p_{n1} &amp; p_{n2} &amp; \dots &amp; p_{nn}
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="order-book-imbalance-and-limit-order-flow-models" class="level4">
+<h4 class="anchored" data-anchor-id="order-book-imbalance-and-limit-order-flow-models">Order Book Imbalance and Limit Order Flow Models</h4>
+<ul>
+<li><strong>Order Flow Imbalance Indicators (OFI):</strong> Measures the net pressure in the book (e.g., volume at bid minus ask over time). Integrated into ML classifiers or statistical models for short-term directionality in Brent-WTI spreads.</li>
+</ul>
+<p><em>Order Flow Imbalance</em> <span class="math display">\[
+\text{OFI}_t = \Delta V_t^{\text{bid}} - \Delta V_t^{\text{ask}}
+\]</span></p>
+<p><em>Cumulative Order Flow Imbalance</em> <span class="math display">\[
+\text{COFI}_t = \sum_{i=1}^{t} (\Delta V_i^{\text{bid}} - \Delta V_i^{\text{ask}})
+\]</span></p>
+<ul>
+<li><strong>Queue Position Modeling:</strong> Predicting fill probability based on queue length and volatility expectations. Applied in passive spread trades where price improvement is balanced with fill risk.</li>
+</ul>
+<p><em>Fill Probability</em> <span class="math display">\[
+P_{\text{fill}} = f(Q_t, \sigma_t, \lambda_t
+\]</span></p>
+<p><em>Expected Fill Time (Poisson Approximation)</em> <span class="math display">\[
+E[T_{\text{fill}}] = \frac{Q_t}{\lambda_t}
+\]</span></p>
+<ul>
+<li><strong>Limit Order Flow Dynamics:</strong> Models such as the Avellaneda-Stoikov framework help optimize posting strategy in liquid futures. Customizations include adaptive reservation prices based on volatility regime shifts or macro catalysts (e.g., OPEC announcements).</li>
+</ul>
+<p><em>Reservation Price</em> <span class="math display">\[
+r_t = S_t - \gamma \cdot q_t
+\]</span></p>
+<p><em>Optimal Bid/ Ask Quotes</em> <span class="math display">\[
+\begin{aligned}
+\delta_t^{\text{ask}} &amp;= \frac{1}{\gamma} \ln\left(1 + \frac{\gamma}{k}\right) \\
+\delta_t^{\text{bid}} &amp;= \frac{1}{\gamma} \ln\left(1 - \frac{\gamma}{k}\right)
+\end{aligned}
+\]</span></p>
+<p><em>Volatility Regime Adjustment</em> <span class="math display">\[
+r_t^{\text{adaptive}} = S_t - \gamma \cdot q_t + \phi(\sigma_t, \text{Macro}_t)
+\]</span></p>
+<p><strong>Please Note: Many of these strategies only require you to be marginally better than your competitors to gain an edge. It is also important to remember that the real world has many regulatory and exchange compliance considerations as well.</strong></p>
+</section>
+</section>
+</section>
+<section id="bootstrapping" class="level2">
+<h2 class="anchored" data-anchor-id="bootstrapping">Bootstrapping</h2>
+<p>Bootstrapping is a method used to construct a zero-coupon yield curve by sequentially deriving spot rates from the prices of fixed-income instruments like bonds or swaps, starting from the shortest maturities. This step-by-step approach allows for accurate discount factor extraction and is foundational for pricing interest rate derivatives and building forward and swap curves.</p>
+<section id="bootstrapping-yield-curves" class="level3">
+<h3 class="anchored" data-anchor-id="bootstrapping-yield-curves">Bootstrapping Yield Curves</h3>
+<p><strong>Objective:</strong> Construct a zero-coupon yield curve (term structure of interest rates) from market instruments (e.g., deposits, futures, swaps).</p>
+<p><strong>Key Instruments (USD Example):</strong></p>
+<ul>
+<li>Short end: Overnight index swaps (OIS), LIBOR fixings, SOFR futures</li>
+<li>Medium-term: Interest rate futures (e.g., Eurodollar/SOFR strips)</li>
+<li>Long end: Interest rate swaps (IRS), Treasury bonds</li>
+</ul>
+<p><strong>Bootstrapping Process:</strong></p>
+<ul>
+<li><p><strong>Step 1:</strong> Solve for short-term discount factors using known instruments (e.g., OIS, LIBOR). <span class="math display">\[
+D(t_1) = \frac{1}{1 + r(t_1) \cdot t_1}
+\]</span></p></li>
+<li><p><strong>Step 2:</strong> Iteratively derive longer maturities using instruments like swaps, futures. <span class="math display">\[
+\sum_{i=1}^{n} D(t_i) \cdot \text{CF}_i = \text{Market Price}
+\]</span></p></li>
+<li><p><strong>Step 3:</strong> Interpolate between bootstrapped points, common methods:</p>
+<ul>
+<li><p>Linear on zero rates <span class="math display">\[
+For t \in [t_i, t_{i+1}]: r(t) = r(t_i) + \frac{r(t_{i+1}) - r(t_i)}{t_{i+1} - t_i} \cdot (t - t_i)
+\]</span></p></li>
+<li><p>Cubic spline on log discount factors <span class="math display">\[
+ln D(t) = S(t)
+\]</span></p></li>
+<li><p>Monotone convex (Hagan-West method) <span class="math display">\[
+f(t) = \text{MonotoneConvex}(D(t_i), D(t_{i+1}), t)
+\]</span></p></li>
+</ul></li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li><p>Zero-coupon yield curve: <span class="math display">\[
+Z(t) = e^{-r(t) \cdot t}
+\]</span></p></li>
+<li><p>Forward curve: <span class="math display">\[
+f(t) = -\frac{d}{dt} \ln Z(t)
+\]</span></p></li>
+</ul>
+<p><em>Instantaneous forward rates used in valuation and risk models</em></p>
+</section>
+<section id="swap-curve-construction" class="level3">
+<h3 class="anchored" data-anchor-id="swap-curve-construction">Swap Curve Construction</h3>
+<p><strong>Objective:</strong> Price interest rate swaps and derive a par swap rate curve.</p>
+<p><strong>Input Instruments:</strong></p>
+<ul>
+<li>Fixed-for-floating swaps across multiple tenors (e.g., 1Y, 2Y, …, 30Y)</li>
+<li>Use LIBOR, SOFR, or EURIBOR as the floating leg index</li>
+</ul>
+<p><strong>Construction:</strong></p>
+<ul>
+<li><p>Floating leg PV: <span class="math display">\[
+\text{PV}_{\text{float}} = \sum_{i=1}^{n} D(t_i) \cdot F(t_{i-1}, t_i) \cdot \Delta
+\]</span></p></li>
+<li><p>Fixed leg PV: <span class="math display">\[
+\text{PV}_{\text{fixed}} = R \cdot \sum_{i=1}^{n} D(t_i) \cdot \Delta_i
+\]</span></p></li>
+<li><p>Solve for par swap rate: <span class="math display">\[
+R_{\text{par}} = \frac{\sum_{i=1}^{n} D(t_i) \cdot F(t_{i-1}, t_i) \cdot \Delta_i}{\sum_{i=1}^{n} D(t_i) \cdot \Delta_i}
+\]</span></p></li>
+</ul>
+<p><strong>Applications:</strong> Used in derivative pricing, especially for IRS, swaptions, and CMS products. Forms the backbone of discounting and collateral modeling in multi-curve frameworks. Can also be used to derive risk metrics (DV01, delta, gamma, ect…).</p>
+</section>
+<section id="local-volatility-surface-dupire-framework" class="level3">
+<h3 class="anchored" data-anchor-id="local-volatility-surface-dupire-framework">Local Volatility Surface: Dupire Framework</h3>
+<p><strong>Objective:</strong> Derive a local volatility function (S,t) consistent with the observed implied volatility surface.</p>
+<p><strong>Foundation:</strong> Derived from the Black-Scholes framework assuming deterministic volatility dependent on both time and spot price Extends BS to explain smiles/skews in implied volatility.</p>
+<p><strong>Dupire Equation (Forward PDE):</strong></p>
+<ul>
+<li>Requires smooth interpolation of call prices across strikes and maturities</li>
+<li>Often derived from implied volatility surface using SABR or SVI fits to smooth noisy vol surface</li>
+</ul>
+<p><strong>Use Cases:</strong> Pricing exotic options (e.g., barrier options, cliquets) where path-dependence matters. Calibrating local volatility trees/lattices. Basis for more advanced stochastic-local volatility (SLV) models.</p>
+</section>
+<section id="integration-in-practice" class="level3">
+<h3 class="anchored" data-anchor-id="integration-in-practice">Integration in Practice</h3>
+<p><strong>Bootstrapped Curves are used for:</strong> + Discounting (risk-free or OIS) + Forward projection for swap pricing + Yield curve risk sensitivity (DV01, key rate duration)</p>
+<p><strong>Local Vol Surface → Used for:</strong> + Simulation + Exotic derivatives risk + Smile-consistent hedging</p>
+</section>
+</section>
+<section id="distressed-debt-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="distressed-debt-modeling">Distressed Debt Modeling</h2>
+<p>Distressed debt modeling involves valuing the securities of issuers in or near default by incorporating recovery assumptions, credit spreads, capital structure waterfalls, and legal scenarios. Quantitative methods often use structural models (e.g., Merton-type) or reduced-form models to estimate the probability of default (PD) and loss given default (LGD) across instruments.</p>
+<section id="quantitative-methods" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-methods">Quantitative Methods</h3>
+<p><strong>Structural Models:</strong></p>
+<ul>
+<li>Based on Merton or Black-Cox frameworks (firm value as underlying asset).</li>
+<li>Default occurs when asset value &lt; debt threshold.</li>
+<li>Useful for modeling capital structure arbitrage or equity-debt conversion.</li>
+</ul>
+<p><strong>Reduced-form Models:</strong></p>
+<ul>
+<li>Hazard-rate based modeling (e.g., Poisson process for default).</li>
+<li>Calibrate to market CDS spreads or bond curves.</li>
+</ul>
+<p><strong>Recovery Rate Modeling:</strong></p>
+<ul>
+<li>Constant, stochastic, or conditional on macro/market states.</li>
+<li>Valuation Techniques:
+<ul>
+<li>Simulation: Project firm value paths or cash flows under uncertainty.</li>
+<li>Binomial/Trinomial Trees: Useful for scenario-based recovery modeling.</li>
+<li>Legal Outcome Trees: Map to probabilistic resolution paths (e.g., liquidation vs.&nbsp;reorganization).</li>
+</ul></li>
+</ul>
+<p><strong>Machine Learning in Distressed:</strong></p>
+<ul>
+<li>Predicting distressed situations using early-warning indicators.</li>
+<li>Clustering to detect patterns across defaulted firms or sectors.</li>
+</ul>
+</section>
+<section id="default-clustering-correlated-defaults" class="level3">
+<h3 class="anchored" data-anchor-id="default-clustering-correlated-defaults">Default Clustering (Correlated Defaults)</h3>
+<p>In crises, defaults often happen together, not independently. Diversification breaks down when correlations rise (wrong-way risk).</p>
+<p><strong>Sources of Correlation:</strong></p>
+<ul>
+<li>Macroeconomic exposure (e.g., oil price crash).</li>
+<li>Sector/geographic shocks (e.g., regional banking stress).</li>
+<li>Counterparty or supply chain dependencies (As one defaults, so do the counterparties).</li>
+</ul>
+<section id="modeling-approaches" class="level4">
+<h4 class="anchored" data-anchor-id="modeling-approaches">Modeling Approaches:</h4>
+<p><strong>Copulas:</strong></p>
+<ul>
+<li>Gaussian copula was common pre-2008, now considered oversimplified. Tail dependencies poorly captured in Gaussian vs.&nbsp;t-copulas. <span class="math display">\[
+C(u_1,\dots,u_n)
+= \Phi_{\Sigma}\bigl(\Phi^{-1}(u_1),\dots,\Phi^{-1}(u_n)\bigr)
+\]</span></li>
+</ul>
+<p><span class="math display">\[
+C^{(t)}(u_1,\dots,u_n)
+= t_{\nu,\Sigma}\bigl(t_{\nu}^{-1}(u_1),\dots,t_{\nu}^{-1}(u_n)\bigr)
+\]</span></p>
+<p><strong>Factor Models:</strong></p>
+<p>Defaults conditional on common latent factors (e.g., GDP, interest rates). Easier to simulate correlated defaults. <span class="math display">\[
+X_i = \sqrt{\rho_i}\,F \;+\;\sqrt{1-\rho_i}\,\epsilon_i
+\]</span></p>
+<p><span class="math display">\[
+k_i = \Phi^{-1}(p_i)
+\]</span></p>
+<p><span class="math display">\[
+P\bigl(\text{default}_i \mid F=f\bigr)
+= \Phi\!\Bigl(\frac{k_i - \sqrt{\rho_i}\,f}{\sqrt{1-\rho_i}}\Bigr)
+\]</span></p>
+<p><strong>Multivariate Time Series Models:</strong></p>
+<p>Capture contagion effects (e.g., vector autoregressive models with default links).</p>
+<p><em>Latent Default Framework</em> <span class="math display">\[
+\mathbf{Z}_t = \mu + A\,\mathbf{Z}_{t-1} + \eta_t
+\]</span></p>
+<p><span class="math display">\[
+D_{i,t} = \mathbf{1}\{Z_{i,t} \le c_i\}
+\]</span></p>
+<p><strong>Risk Metrics:</strong></p>
+<ul>
+<li>Conditional VaR (CVaR): Captures expected loss beyond VaR in tail scenarios. <span class="math display">\[
+\mathrm{CVaR}_\alpha(L)
+= \mathbb{E}\bigl[L \mid L \ge \mathrm{VaR}_\alpha(L)\bigr]
+\]</span></li>
+</ul>
+<p><span class="math display">\[
+\mathrm{CVaR}_\alpha(L)
+= \min_{\xi}\Bigl\{\xi + \frac{1}{1-\alpha}\,\mathbb{E}[(L-\xi)_+]\Bigr\}
+\]</span></p>
+<ul>
+<li>Non-Linear Conditional VaR (CVaR): Captures expected loss beyond VaR in tail scenarios. <span class="math display">\[
+\mathrm{CVaR}_\alpha\bigl(g(X)\bigr)
+= \mathbb{E}\bigl[g(X)\mid g(X)\ge \mathrm{VaR}_\alpha(g(X))\bigr]
+\]</span></li>
+</ul>
+</section>
+</section>
+<section id="improvements-to-modeling-cdos-in-2008" class="level3">
+<h3 class="anchored" data-anchor-id="improvements-to-modeling-cdos-in-2008">Improvements To Modeling CDOs In 2008</h3>
+<p>Improving CDO modeling involves addressing the key weaknesses exposed during the 2008 crisis, especially in capturing tail risk, default clustering, liquidity shocks, and dynamic correlations. Here are concrete ways to improve it:</p>
+<p><strong>Move Beyond Gaussian Copula</strong></p>
+<p><strong>Problem:</strong> Gaussian copulas assume constant, linear correlation and ignore tail dependence.</p>
+<p><strong>Improvement:</strong> Use t-copulas, multi-factor copulas, or Archimedean copulas to capture extreme co-movements and asymmetric dependence during stress events. <span class="math display">\[
+C(u_1,\dots,u_n)
+= \psi^{-1}\bigl(\psi(u_1) + \cdots + \psi(u_n)\bigr)
+\]</span></p>
+<p><strong>Introduce Dynamic Default Correlation</strong></p>
+<p><strong>Problem:</strong> Static models don’t reflect changing macro and firm-specific risk.</p>
+<p><strong>Improvement:</strong> Use stochastic correlation models or state-dependent copulas. Apply regime-switching models where correlations jump during crises. Model time-varying correlations with Dynamic Conditional Correlation (DCC-GARCH) frameworks. <span class="math display">\[
+d\rho_t = \kappa\bigl(\theta - \rho_t\bigr)\,dt + \sigma\,dW_t
+\]</span></p>
+<p><em>Time-varying Gaussian Copula</em> <span class="math display">\[
+C_t(u_1,u_2)
+= \Phi_{\rho_t}\bigl(\Phi^{-1}(u_1),\Phi^{-1}(u_2)\bigr)
+\]</span></p>
+<p><em>Regime-Switching Copulas (HMM Hybrid)</em> <span class="math display">\[
+C_t(u_1,u_2)
+= \Phi_{\rho^{(S_t)}}\bigl(\Phi^{-1}(u_1),\Phi^{-1}(u_2)\bigr),
+\quad
+P(S_t=j\mid S_{t-1}=i)=p_{ij}.
+\]</span></p>
+<p><em>GARCH(1,1) for Marginal Variances</em> <span class="math display">\[
+h_{i,t} = \omega_i
+  + \alpha_i\,x_{i,t-1}^2
+  + \beta_i\,h_{i,t-1},
+\quad
+D_t = \mathrm{diag}\bigl(\sqrt{h_{1,t}},\dots,\sqrt{h_{n,t}}\bigr)
+\]</span></p>
+<p><em>DCC Update for Correlations</em> <span class="math display">\[
+x_t = D_t\,z_t,\quad z_t\sim N\bigl(0,R_t\bigr)
+\]</span></p>
+<p><span class="math display">\[
+Q_t = (1-\alpha-\beta)\,\bar Q
+  + \alpha\,z_{t-1}z_{t-1}^\prime
+  + \beta\,Q_{t-1}
+\]</span></p>
+<p><span class="math display">\[
+R_t = \mathrm{diag}(Q_t)^{-1/2}\;Q_t\;\mathrm{diag}(Q_t)^{-1/2}.
+\]</span></p>
+<p><strong>Explicitly Model Systemic and Contagion Risk</strong></p>
+<p><strong>Problem:</strong> Traditional models assume independence or factor-based co-movement.</p>
+<p><strong>Improvement:</strong> Incorporate network-based models to capture interdependence (e.g., supply chain links, counterparty exposure). Use Markov jump processes or Bayesian networks to model transmission of distress.</p>
+<p><em>Exposure Network &amp; Threshold Cascade</em> <span class="math display">\[
+L_i^{(t)} \;=\; \sum_{j=1}^n e_{ij}\,D_j^{(t)},
+\qquad
+D_i^{(t+1)} \;=\;\mathbf{1}\bigl(L_i^{(t)} \ge \theta_i\bigr)
+\]</span></p>
+<p><em>Eisenberg-Noe Clearing Model</em> <span class="math display">\[
+p_i \;=\;\min\Bigl\{\bar p_i,\;c_i + \sum_{j=1}^n L_{ji}\,p_j\Bigr\},
+\qquad
+\mathbf{p} \;=\;\min\{\bar{\mathbf p},\,L^\top \mathbf{p} + \mathbf{c}\}
+\]</span></p>
+<p><em>Markov Jump Processes for Distress</em> <span class="math display">\[
+\lambda_i(t)
+= \lambda_i^0 + \sum_{j=1}^n w_{ij}\,D_j(t^-),
+\qquad
+dD_i(t) = \bigl(1 - D_i(t^-)\bigr)\,dN_i(t)
+\]</span></p>
+<p><em>Bayesian Network Transmission Models</em> <span class="math display">\[
+P\bigl(D_i=1 \mid D_{\mathrm{Pa}(i)}\bigr)
+= \mathrm{logit}^{-1}\!\Bigl(\alpha_i
+  + \sum_{j\in\mathrm{Pa}(i)} \beta_{ij}\,D_j\Bigr)
+\]</span></p>
+</section>
+</section>
+<section id="noahs-model-review" class="level2">
+<h2 class="anchored" data-anchor-id="noahs-model-review">Noah’s Model Review</h2>
+<p><strong>Options Spread Mean Reversion Strategy Summary:</strong></p>
+<p>The strategy uses a mean reversion model on the price of an options put spread. It enters short positions when the spread price exceeds +2 standard deviations and long positions when it drops below -2 standard deviations, based on a rolling standard deviation window. This allows flexibility in both uptrends and downtrends, helping manage delta/gamma risk from directional moves. The model was tested with both gradient boosting and KNN algorithms to explore predictive signals on the underlying options data.</p>
+<p><strong>Key Disscussion Points:</strong></p>
+<ul>
+<li>No consideration of implied volatility: Spread pricing is highly sensitive to IV changes; using only historical spread price may miss the main driver.</li>
+<li>Assumes normal distribution of spread price: Mean reversion based on ±2 standard deviations assumes symmetry and normality, which may not hold for options spreads.</li>
+<li>Ignores regime shifts: Rolling standard deviations don’t adapt well to sudden volatility spikes or structural breaks in the market.</li>
+<li>Spread prices can “walk”: Put spread prices can trend due to IV skew, time decay, or changes in correlation—not necessarily mean-reverting.</li>
+<li>KNN is poorly suited to high-dimensional option data: It performs poorly in high dimensions and doesn’t generalize well in noisy, nonlinear financial time series.</li>
+<li>GBM likely overfits on limited option data: Gradient boosting models require careful tuning and regularization to avoid overfitting, especially with small sample sizes or overlapping features.</li>
+<li>Lack of feature engineering: There’s no mention of including Greeks (delta, vega, theta), IV, skew, or time-to-expiry as model features.</li>
+</ul>
+</section>
+<section id="forecasting-methods" class="level2">
+<h2 class="anchored" data-anchor-id="forecasting-methods">Forecasting Methods</h2>
+<p>Forecasting in finance is the art and science of predicting future market behavior based on current and historical information. The key is balancing statistical rigor with market intuition, while incorporating structural, behavioral, and noise-based components.</p>
+<section id="freight-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="freight-forecasting">Freight Forecasting</h3>
+<p><strong>Purpose:</strong> Predict future freight rates (e.g., dry bulk, containers, tankers) using supply/demand dynamics, macroeconomic drivers, and shipping-specific indicators.</p>
+<p><strong>Core Inputs:</strong></p>
+<ul>
+<li>Supply: Fleet size, vessel scrapping/newbuild deliveries, port congestion.</li>
+<li>Demand: Global GDP, commodity flows (iron ore, coal, ags), trade balances.</li>
+<li>Shocks: War, strikes, Panama/Suez Canal disruptions.</li>
+</ul>
+<p><strong>Quantitative Technique:</strong> Panel Regression: Cross-sectional freight rates by vessel class/route.</p>
+<p><em>Fixed-Effects Model</em> <span class="math display">\[
+f_{i,t}
+= \beta_0
++ \sum_{k=1}^K \beta_k\,X_{i,t,k}
++ \alpha_i
++ \lambda_t
++ \varepsilon_{i,t}
+\]</span></p>
+<p><em>Random-Effects Model</em> <span class="math display">\[
+f_{i,t}
+= \beta_0
++ \sum_{k=1}^K \beta_k\,X_{i,t,k}
++ u_i
++ \lambda_t
++ \varepsilon_{i,t}
+\]</span></p>
+<p><em>Utilize a Hausman Test for Fixed vs.&nbsp;Random Effects</em></p>
+</section>
+<section id="foreign-exchange-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="foreign-exchange-forecasting">Foreign Exchange Forecasting</h3>
+<p><strong>Purpose:</strong> Predict FX rates (e.g., USD/EUR) to hedge, arbitrage, or manage global portfolio exposure.</p>
+<p><strong>Key Drivers:</strong></p>
+<ul>
+<li>Interest Rate Differentials (carry trades).</li>
+<li>Monetary Policy Paths (Fed, ECB, BoJ forward guidance).</li>
+<li>Capital Flows &amp; Trade Balances.</li>
+<li>Geopolitical events, inflation surprises, risk sentiment.</li>
+</ul>
+<p><strong>Quantiative Techniques:</strong></p>
+<p><em>Uncovered Interest Parity (UIP) Models: Theory-based, often violated empirically.</em> <span class="math display">\[
+E_t[s_{t+1}] - s_t = i_t - i_t^*
+\]</span></p>
+<p><em>With Risk Premium:</em> <span class="math display">\[
+E_t[s_{t+1}] - s_t = i_t - i_t^* + \rho_t
+\]</span></p>
+<p><em>Sentiment Models: NLP on FOMC transcripts or central bank speeches (If completed at a high frequency)</em> <span class="math display">\[
+S_d
+= \frac{\sum_{v\in V} l_v \, x_{d,v}}
+       {\sum_{v\in V} x_{d,v}}  
+\]</span></p>
+<p><strong>There are countless banks who provide directional reports in regards to currency… and are more-often wrong.</strong></p>
+</section>
+<section id="portfolio-impact-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="portfolio-impact-forecasting">Portfolio Impact Forecasting</h3>
+<p>There are countless measures of portfolio impact forecasting. The primary focus will be on two related to physical (cash) trading.</p>
+<section id="agent-based-game-theoretic-models" class="level4">
+<h4 class="anchored" data-anchor-id="agent-based-game-theoretic-models">Agent-Based &amp; Game-Theoretic Models</h4>
+<ul>
+<li><strong>Strategic Behavior Modeling:</strong> Simulate how competitors react to your trades—hoarding, pre-loading terminals, booking tankers preemptively. <span class="math display">\[
+S_{i,t+1} = \mathrm{BR}_i\bigl(S_{-i,t}\bigr),
+\quad
+\mathrm{BR}_i: (H_{-i},L_{-i},B_{-i})\mapsto(H^*_i,L^*_i,B^*_i).
+\]</span></li>
+</ul>
+<p><em>Firms update strategies via best-response dynamics</em> <span class="math display">\[
+\begin{aligned}
+(H^*_{i,t},L^*_{i,t},B^*_{i,t})
+&amp;=\arg\max_{H,L,B}\;
+\mathbb{E}\Bigl[P_t\,(Q_{i,t} + L - H)
+- C_q(Q_{i,t}) - C_h(H) - C_b(B)\Bigr]
+\\
+\text{s.t.}\quad
+&amp;0 \le H + L \le I_{i,t},
+\quad B \le \bar B_i,
+\end{aligned}
+\]</span></p>
+<ul>
+<li><strong>Market Microstructure Simulations:</strong> Include competitors’ inventories, transport capacity, and expected export volumes.</li>
+</ul>
+<p><em>Inventory And Constraints</em> <span class="math display">\[
+I_{i,t+1}
+= I_{i,t} + Q^{\mathrm{prod}}_{i,t}
+- \sum_{r}V_{i,r,t},
+\]</span></p>
+<p><span class="math display">\[
+V_{i,r,t} \le T_{i,r},
+\]</span></p>
+<p><em>Expected Exports</em> <span class="math display">\[
+\mathbb{E}_t[V_{i,r,t}]
+= \alpha_{i,r}
++ \beta_{i,r}\,P_{r,t}
++ \gamma_{i,r}\,I_{i,t}.
+\]</span></p>
+<p><em>Market Clearing &amp; Price Formation</em> <span class="math display">\[
+\sum_i V_{i,r,t} = D_{r,t}.
+\]</span></p>
+<p><span class="math display">\[
+P_{r,t}
+= A_r
+- B_r\,\sum_i V_{i,r,t}
++ \eta_{r,t},
+\]</span></p>
+</section>
+<section id="market-impact-modeling" class="level4">
+<h4 class="anchored" data-anchor-id="market-impact-modeling">Market Impact Modeling</h4>
+<ul>
+<li><p><strong>Permanent vs.&nbsp;Temporary Impact:</strong> Distinguishing between price changes that are due to transitory liquidity shifts vs.&nbsp;structural supply/demand imbalance from large trades or physical movements. <span class="math display">\[
+\begin{aligned}
+dS_t &amp;= \gamma\,v_t\,dt + \sigma\,dW_t, \\[6pt]
+P_t^{\mathrm{exec}} &amp;= S_t + \eta\,v_t,
+\end{aligned}
+\]</span></p></li>
+<li><p><strong>Footprint Risk:</strong> Modeling how large position changes (e.g., shipping in 100kt of wheat) affect price discovery, local cash markets, or futures basis. <span class="math display">\[
+P_t = P_0 + \int_0^t G(t-s)\,v_s\,ds + \sigma\,W_t,
+\quad
+G(u) = \gamma + \eta\,e^{-k\,u},
+\]</span></p></li>
+</ul>
+<p><em>Basis Shift From Large Cargos</em> <span class="math display">\[
+\Delta b_t = F_t - S_t = \beta\,Q + \varepsilon_t,
+\]</span></p>
+<ul>
+<li><strong>Order Flow Models:</strong> Using signed trade flow or expected delivery volumes to estimate market reaction (volume-weighted price impact models, Almgren–Chriss framework extensions).</li>
+</ul>
+<p><span class="math display">\[
+S_t = S_0
++ \gamma \int_0^t v_s\,ds
++ \eta\,v_t
++ \sigma\,W_t
+\]</span></p>
+<p>As with any impact model, some slippage is likley existent, creating model risk. Meaning, it is near impossible to create a model with greater than 99 percent certainty.</p>
+</section>
+</section>
+</section>
+<section id="applications-to-process-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="applications-to-process-modeling">Applications To Process Modeling</h2>
+<p>There are countless measures of portfolio impact forecasting. The primary focus will be on three practical industry scenarios. There are three primary proccesses:</p>
+<ul>
+<li><p>Diffusion (Geometric Brownian Motion) <span class="math display">\[
+dS_t = \mu\,S_t\,dt + \sigma\,S_t\,dW_t
+\]</span></p></li>
+<li><p>Mean Reversion (Ornstein-Uhlenbeck) <span class="math display">\[
+dX_t = \kappa\bigl(\theta - X_t\bigr)\,dt + \sigma\,dW_t
+\]</span></p></li>
+<li><p>Jump Models (Levy Ornstein-Uhlenbeck) <span class="math display">\[
+dX_t = \kappa\bigl(\theta - X_t\bigr)\,dt + \sigma\,dW_t + dJ_t
+\]</span></p></li>
+</ul>
+<section id="process-driven-financial-forecasting" class="level3">
+<h3 class="anchored" data-anchor-id="process-driven-financial-forecasting">Process-Driven Financial Forecasting</h3>
+<ul>
+<li><strong>Gross Margin Simulation:</strong> Model how changes in process efficiency or yield impact financials (e.g., oil crack spread, flour extraction rate). <span class="math display">\[
+M_t = P_t\,Y_t - C_t
+\]</span></li>
+</ul>
+<p><em>Where Y can be modeled as</em> <span class="math display">\[
+dY_t = \alpha\bigl(\bar Y - Y_t\bigr)\,dt + \eta\,dW_t
+\]</span></p>
+<ul>
+<li><strong>Cash Flow Timing Models:</strong> Align physical process steps with financial events (e.g., prepay, letter of credit, DAP vs.&nbsp;CIF terms). <span class="math display">\[
+PV \;=\; \sum_i \frac{CF_i}{(1 + r)^{t_i}},
+\qquad
+CF_i = \text{Payment at step }i
+\]</span></li>
+</ul>
+<p><em>Where CF can be modeled as</em> <span class="math display">\[
+dCF_t = \alpha\bigl(\bar CF - CF_t\bigr)\,dt + \eta\,dW_t
+\]</span></p>
+</section>
+<section id="execution-routing-models" class="level3">
+<h3 class="anchored" data-anchor-id="execution-routing-models">Execution &amp; Routing Models</h3>
+<ul>
+<li><p><strong>Smart Order Routing (SOR) Flows:</strong> Model how an order is split across venues, with constraints like latency, fill probability, cost. <span class="math display">\[
+J(u^1,\dots,u^J)
+= \mathbb{E}\Bigl[\sum_{j=1}^J\int_0^T (S_t^j + \eta_j u_t^j)\,u_t^j\,dt + \phi\,q_T^2\Bigr].
+\]</span></p></li>
+<li><p><strong>Dark Pool vs Lit Venue Flow:</strong> Estimate probability and impact of information leakage in execution processes. <span class="math display">\[
+J = \mathbb{E}\Bigl[\sum_j\int_0^T \bigl(S_t^j + \eta_j u_t^j\bigr)\,dQ_t^j + \phi\,q_T^2\Bigr].
+\]</span></p></li>
+</ul>
+</section>
+<section id="systemic-risk-network-flows" class="level3">
+<h3 class="anchored" data-anchor-id="systemic-risk-network-flows">Systemic Risk &amp; Network Flows</h3>
+<ul>
+<li><p><strong>Interbank Funding Flow Models:</strong> Map repo, FX swaps, and unsecured funding as interconnected flows between institutions. <span class="math display">\[
+d f_{ij}(t)
+= \kappa_{ij}\bigl(\theta_{ij} - f_{ij}(t)\bigr)\,dt + \sigma_{ij}\,dW_{ij}(t) + dJ_{ij}(t)
+\]</span></p></li>
+<li><p><strong>Central Clearing Flows:</strong> Model margin calls, collateral rehypothecation, and waterfall triggers.</p></li>
+</ul>
+<p><em>Margins</em> <span class="math display">\[
+\mathrm{IM}_i(t)
+= \max\bigl\{\phi_i\bigl(V_i(t) - V_i^*\bigr),\,0\bigr\}
+\]</span></p>
+<p><em>Collateral</em> <span class="math display">\[
+dC_i(t)
+= d\mathrm{VM}_i(t)
++ d\mathrm{IM}_i(t)
+- \rho_i\bigl[C_i(t) - C_i^{\min}\bigr]\,dt
+\]</span></p>
+<p><em>Waterfall Triggers At Default</em> <span class="math display">\[
+C_i^{(k)}(\tau_i)
+= \min\Bigl\{L_i^{(k)},\;\max\{0,\,M_i(\tau_i)-\sum_{m&lt;k}C_i^{(m)}(\tau_i)\}\Bigr\}
+\]</span></p>
+</section>
+</section>
+<section id="risk-industry-quantiative-application" class="level2">
+<h2 class="anchored" data-anchor-id="risk-industry-quantiative-application">Risk Industry Quantiative Application</h2>
+<section id="linear-non-linear-markets" class="level3">
+<h3 class="anchored" data-anchor-id="linear-non-linear-markets">Linear &amp; Non-Linear Markets</h3>
+<p>In financial risk management, distinguishing between linear and non-linear instruments is foundational to the development of pricing, hedging, and risk attribution models.</p>
+<p><strong>Linear Markets:</strong></p>
+<p>These markets consist of instruments whose payoffs are directly proportional to the price movement of the underlying asset. This includes equities, bonds, and forwards.</p>
+<p><em>Delta</em> <span class="math display">\[
+\Delta \;=\;\frac{\partial V}{\partial S}
+\]</span></p>
+<p>Risk modeling focuses on delta exposure, sensitivity to interest rates (DV01), and time decay in carry-focused strategies. <span class="math display">\[
+\mathrm{DV01}
+= -\frac{\partial P}{\partial y}\times 10^{-4}
+\]</span></p>
+<p><span class="math display">\[
+\Theta \;=\;\frac{\partial V}{\partial t}
+\]</span></p>
+<p>Value-at-Risk (VaR) and Expected Shortfall (ES) can typically be modeled under normal or lognormal assumptions with relatively high confidence. <span class="math display">\[
+\mathrm{VaR}_{\alpha}
+= \mu + \sigma\,\Phi^{-1}(\alpha)
+\]</span></p>
+<p><span class="math display">\[
+\mathrm{ES}_{\alpha}
+= \mu + \sigma\,\frac{\phi\bigl(\Phi^{-1}(\alpha)\bigr)}{1 - \alpha}
+\]</span></p>
+<p>Sensitivities (Greeks) are generally stable and do not require higher-order derivatives for risk decomposition.</p>
+<p><strong>Non-Linear Markets:</strong></p>
+<p>These include options, structured products, CDOs, and other derivatives whose payoffs exhibit convexity or path-dependency.</p>
+<p>Modeling requires inclusion of gamma (curvature), vega (volatility sensitivity), and higher-order risks (e.g., vanna, volga).</p>
+<p><span class="math display">\[
+\Gamma
+= \frac{\partial^2 V}{\partial S^2}
+\]</span></p>
+<p><span class="math display">\[
+\nu
+= \frac{\partial V}{\partial \sigma}
+\]</span></p>
+<p><span class="math display">\[
+\mathrm{Vanna}
+= \frac{\partial^2 V}{\partial S\,\partial \sigma}
+\]</span></p>
+<p><span class="math display">\[
+\mathrm{Volga}
+= \frac{\partial^2 V}{\partial \sigma^2}
+\]</span></p>
+<p>Scenario and stress testing frameworks become essential, particularly when large moves or tail events are involved. simulations, copula methods, and stochastic differential equations (SDEs) are widely used. Portfolio aggregation is challenging due to non-linear exposure interactions and volatility clustering.</p>
+</section>
+<section id="taylor-series-expansion" class="level3">
+<h3 class="anchored" data-anchor-id="taylor-series-expansion">Taylor Series Expansion</h3>
+<p>The Taylor Series is a fundamental tool in the quantitative risk industry, used to approximate non-linear functions in both pricing and sensitivity analysis.</p>
+<p><span class="math display">\[
+\Delta V
+\approx \Delta S\,\Delta
++ \tfrac12\,\Gamma\,(\Delta S)^2
++ \Theta\,\Delta t
++ \nu\,\Delta \sigma
+\]</span></p>
+<p><strong>First-Order Approximations:</strong></p>
+<p>Used for linear risk models and sensitivity reporting (e.g., delta, DV01). In pricing and VaR models, this is equivalent to assuming local linearity.</p>
+<p><strong>Second-Order Approximations:</strong></p>
+<p>Introduce curvature and convexity—gamma in options, second-order interest rate sensitivity in bonds. Critical in stress testing, PnL explain, and managing hedging errors over large moves. Non-linear PnL decomposition often uses a second-order.</p>
+</section>
+<section id="applications-in-risk-management" class="level3">
+<h3 class="anchored" data-anchor-id="applications-in-risk-management">Applications in Risk Management:</h3>
+<p><strong>Risk aggregation:</strong> Taylor expansions enable additive approximations for portfolio-level risk contributions. <span class="math display">\[
+\mathrm{Var}(\Delta V)
+= \Delta^\top \Sigma\,\Delta
++ \tfrac12\sum_{i=1}^N\sum_{j=1}^N \Gamma_{ij}\,\mathrm{Cov}(S_i,S_j)
+\]</span></p>
+<ul>
+<li><p><strong>Scenario analysis:</strong> Taylor expansion facilitates the modeling of PnL under multiple variable shocks. <span class="math display">\[
+\Delta V(\Delta S)
+= V\bigl(S + \Delta S\bigr) - V(S)
+\]</span></p></li>
+<li><p><strong>Model calibration:</strong> Helps isolate and explain where linear models fail (e.g., basis risk or convexity errors).</p></li>
+</ul>
+<p><strong>Higher-Order Applications:</strong></p>
+<ul>
+<li>Rarely used in real-time risk but applicable in structured product pricing, path-dependent options, and stress scenarios.</li>
+<li>Explains “unexplained PnL” in complex structured desks (e.g., convertible arbitrage).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="mental-model-application-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="mental-model-application-exercise">Mental Model Application Exercise</h2>
+<section id="scenario-black-powder-broken-promises" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-black-powder-broken-promises">Scenario: Black Powder &amp; Broken Promises</h3>
+<section id="your-role" class="level4">
+<h4 class="anchored" data-anchor-id="your-role">Your Role</h4>
+<p>You lead strategy and risk at <strong>GrainCorps West</strong>, a major ag‑trading company that has just expanded into the <strong>phosphate fertilizer market</strong> — a volatile space with poor transparency and geopolitical risks.</p>
+<p>Your firm’s fertilizer exposure now includes:</p>
+<ul>
+<li>Forward phosphate purchases (FOB Morocco, CIF New Orleans)<br>
+</li>
+<li>Freight‑linked swaps on Baltic Dry Index (BDI) shipping routes<br>
+</li>
+<li>Latin‑American physical arbitrage trades<br>
+</li>
+<li>Physical diesel cost pass‑through contracts with producers<br>
+</li>
+<li>A bonus‑price contract with a South‑American distributor tied to freight <strong>and</strong> phosphate prices</li>
+</ul>
+</section>
+<section id="crisis-unfolds" class="level4">
+<h4 class="anchored" data-anchor-id="crisis-unfolds">Crisis Unfolds</h4>
+<ol type="1">
+<li><strong>Morocco halts phosphate exports</strong> after political conflict.<br>
+</li>
+<li><strong>Panama Canal draft restrictions spike shipping costs</strong>, driving BDI sharply higher.<br>
+</li>
+<li><strong>South‑American buyers invoke force majeure</strong> because diesel‑linked deliveries became too expensive.</li>
+</ol>
+</section>
+<section id="current-problems" class="level4">
+<h4 class="anchored" data-anchor-id="current-problems">Current Problems</h4>
+<ul>
+<li>Phosphate cargoes are stuck in Morocco<br>
+</li>
+<li>Freight hedges (BDI swaps) are losing money fast<br>
+</li>
+<li>Bonus payouts on structured contracts are escalating<br>
+</li>
+<li>Diesel hedges are slipping, shrinking margins<br>
+</li>
+<li>The price spread between FOB Morocco and U.S. DAP Gulf is at a record high</li>
+</ul>
+</section>
+<section id="your-mission" class="level4">
+<h4 class="anchored" data-anchor-id="your-mission">Your Mission</h4>
+<p>Design a response that uses risk modeling, freight pricing, optionality, credit analysis, and stress‑scenario thinking.</p>
+</section>
+<section id="key-tasks" class="level4">
+<h4 class="anchored" data-anchor-id="key-tasks">Key Tasks</h4>
+<section id="broken-price-spread-basis" class="level5">
+<h5 class="anchored" data-anchor-id="broken-price-spread-basis">1. Broken Price Spread (Basis)</h5>
+<ul>
+<li><strong>Goal:</strong> Rebuild the pricing model using freight, FX, and political‑risk data<br>
+</li>
+<li><strong>Check:</strong> Test if cointegration with historical prices still holds</li>
+</ul>
+</section>
+<section id="freight-hedge-gone-bad" class="level5">
+<h5 class="anchored" data-anchor-id="freight-hedge-gone-bad">2. Freight Hedge Gone Bad</h5>
+<ul>
+<li><strong>Goal:</strong> Revalue BDI swaps accurately</li>
+</ul>
+</section>
+<section id="structured-bonus-contract-hit" class="level5">
+<h5 class="anchored" data-anchor-id="structured-bonus-contract-hit">3. Structured Bonus Contract Hit</h5>
+<ul>
+<li><strong>Goal:</strong> Reprice the multi‑index bonus contract<br>
+</li>
+<li><strong>Hedge:</strong> Decide between delta‑hedging BDI or crossing into bunker fuel/diesel</li>
+</ul>
+</section>
+<section id="diesellinked-contracts-failing" class="level5">
+<h5 class="anchored" data-anchor-id="diesellinked-contracts-failing">4. Diesel‑Linked Contracts Failing</h5>
+<ul>
+<li><strong>Goal:</strong> Restore hedge effectiveness</li>
+</ul>
+</section>
+<section id="stuck-southamerican-cargo" class="level5">
+<h5 class="anchored" data-anchor-id="stuck-southamerican-cargo">5. Stuck South‑American Cargo</h5>
+<ul>
+<li><strong>Goal:</strong> Store or reroute cargo most profitably</li>
+</ul>
+</section>
+<section id="importer-credit-risk" class="level5">
+<h5 class="anchored" data-anchor-id="importer-credit-risk">6. Importer Credit Risk</h5>
+<ul>
+<li><strong>Goal:</strong> Quantify default risk</li>
+</ul>
+</section>
+<section id="diesel-exposure-hits-portfolio" class="level5">
+<h5 class="anchored" data-anchor-id="diesel-exposure-hits-portfolio">7. Diesel Exposure Hits Portfolio</h5>
+<ul>
+<li><strong>Goal:</strong> Measure &amp; offset total diesel risk</li>
+</ul>
+</section>
+<section id="fix-the-risk-framework" class="level5">
+<h5 class="anchored" data-anchor-id="fix-the-risk-framework">8. Fix the Risk Framework</h5>
+<ul>
+<li><strong>Goal:</strong> Capture multi‑market tail events</li>
+</ul>
+<p><strong>Your recomendations should be provided in a buisness document or email. Please provide insights into the mental models used.</strong></p>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
